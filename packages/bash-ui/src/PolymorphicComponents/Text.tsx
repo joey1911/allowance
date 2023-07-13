@@ -3,7 +3,7 @@ import {
   type PolymorphicProps,
   type PolymorphicPropsWithRef,
   type PolymorphicRef
-} from '../../types';
+} from '../types';
 
 type TextProps<C extends React.ElementType> = PolymorphicPropsWithRef<C>
 

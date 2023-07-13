@@ -6,17 +6,14 @@ import {
   SemanticTokensColors,
   Recipes,
   textStyles
-} from '@allowance/bash-design';
+} from './src';
 
 export default defineConfig({
   // Whether to use css reset
   preflight: true,
 
   // Where to look for your css declarations
-  include: [
-    "./node_modules/@allowance/bash-design/src/**/*.tsx",
-    "./src/**/*.{js,jsx,ts,tsx}"
-  ],
+  include: ["./src/**/*.{js,jsx,ts,tsx}"],
 
   // Files to exclude
   exclude: [],

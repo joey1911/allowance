@@ -6,7 +6,7 @@ import {
   SemanticTokensColors,
   Recipes,
   textStyles
-} from '@allowance/bash-ui';
+} from '@allowance/bash-design';
 
 export default defineConfig({
   // Whether to use css reset
@@ -14,6 +14,7 @@ export default defineConfig({
   
   // Where to look for your css declarations
   include: [
+    "./node_modules/@allowance/bash-design/src/**/*.tsx",
     "./node_modules/@allowance/bash-ui/src/**/*.tsx",
     "./app/**/*.{js,jsx,ts,tsx}"
   ],
