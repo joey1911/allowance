@@ -4,9 +4,13 @@ This is the Allowance monorepo, built with Turborepo.
 
 ## Apps & Packages
 
+### Apps ###
 - `app`: Allowance App / User Dashboard built with [Next.js](https://nextjs.org/)
 - `web`: Allowance Marketing Site and Sign up flow built with [Next.js](https://nextjs.org/)
-- `bash-ui`: Allowance Design System built with [Panda CSS](https://panda-css.com/) used by `web` and `app` applications
+
+### Packages ###
+- `bash-design`: Allowance Design System built with [Panda CSS](https://panda-css.com/)
+- `bash-ui`: Allowance UI Kit which uses Bash Design and some components from [Radix UI](https://www.radix-ui.com/)
 - `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo
 
