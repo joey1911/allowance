@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Header,
   Container,
   Box
 } from '@allowance/bash-ui';
@@ -16,7 +15,7 @@ export default function DashboardLayout({
 }) {
   return (
     <>
-      <Header>
+      <header>
         <Container>
           <div className={flex({ direction: 'row', align: 'center' })}>
             <Box>Allowance Admin</Box>
@@ -25,7 +24,7 @@ export default function DashboardLayout({
             </div>
           </div>
         </Container>
-      </Header>
+      </header>
       <div className={flex({ direction: 'row', gap: '3' })}>
         <div>
           Left Side Navigation

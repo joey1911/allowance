@@ -13,7 +13,6 @@ export { Section } from './components/Section';
 export { Container } from './components/Container';
 export { Text } from './components/PolymorphicComponents/Text';
 
-export { Header } from './components/Header';
 export {
   Navbar,
   MenuItem,

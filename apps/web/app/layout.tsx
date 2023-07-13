@@ -1,5 +1,5 @@
 import './global.css';
-import { Header, Container, Box } from '@allowance/bash-ui';
+import { Container, Box } from '@allowance/bash-ui';
 import { flex } from '@allowance/styled-system/patterns';
 import MainNavbar from '@/components/MainNavbar';
 
@@ -18,14 +18,14 @@ export default function RootLayout({
             Announcement Bar using "Box" element
           </Container>
         </Box>
-        <Header>
+        <header>
           <Container>
             <div className={flex({ direction: 'row', align: 'center', gap: '15px' })}>
               <Box>Allowance</Box>
               <MainNavbar />
             </div>
           </Container>
-        </Header>
+        </header>
         {children}
       </body>
     </html>
