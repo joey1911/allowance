@@ -12,8 +12,6 @@ export class Client {
   }
 
   public async makeRequest(url: string, method: httpMethods) {
-    console.log(url);
-    /*
     const response = await fetch(this.baseUrl + url, {
       method: method,
       headers: new Headers({
@@ -26,7 +24,7 @@ export class Client {
       return response.json();
     }  else {
       // Need to handle errors or other status codes
+      return response.statusText;
     }
-    */
   }
 }
