@@ -11,16 +11,16 @@ import {
   InputGroup,
   Button
 } from '@allowance/bash-ui';
+import { ObservablePrimitiveChildFns } from '@legendapp/state';
 import signup from '../../actions/signup';
 
 import type { SignupDataBasic } from '../../types/user';
-import { ObservablePrimitiveChildFns } from '@legendapp/state';
 
-const SignupForm = ({
+export default function SignupForm({
   signupState
 }: {
   signupState: ObservablePrimitiveChildFns<number>
-}) => {
+}) {
   const {
     register,
     handleSubmit,
@@ -29,7 +29,10 @@ const SignupForm = ({
 
   const onSubmit: SubmitHandler<SignupDataBasic> = async (data) => {
     const response = await signup(data.email, data.password);
-    signupState.set(1);
+
+    if (response) {
+      signupState.set(1);
+    }
   }
 
   return (
@@ -53,6 +56,4 @@ const SignupForm = ({
       </p>
     </form>
   )
-};
-
-export default SignupForm;
+}

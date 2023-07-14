@@ -1,5 +1,7 @@
 import './global.css';
+import React from 'react';
 import { Container, Box } from '@allowance/bash-ui';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { flex } from '@allowance/styled-system/patterns';
 import MainNavbar from '@/components/MainNavbar';
 
@@ -10,12 +12,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-      </head>
+      <head />
       <body>
         <Box type="announcementBar">
           <Container>
-            Announcement Bar using "Box" element
+            Announcement Bar using &quot;Box&quot; element
           </Container>
         </Box>
         <header>

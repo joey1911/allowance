@@ -2,7 +2,9 @@ import {
   Section,
   Container
 } from '@allowance/bash-ui';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { css } from '@allowance/styled-system/css';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { flex } from '@allowance/styled-system/patterns';
 
 export default function Page() {
@@ -25,7 +27,7 @@ export default function Page() {
             </Section>
             <Section>
               Normal Section 2
-              <img src="https://placehold.co/600x400" />
+              <img src="https://placehold.co/600x400" alt="Placeholder" />
             </Section>
             <Section>
               <h1>Typography</h1>
