@@ -4,12 +4,17 @@ import { useTheme } from 'next-themes';
 
 export default function ThemeChanger() {
   const { theme, setTheme } = useTheme();
+  const clickHandler = () => {
+    if (theme === 'light') {
+      setTheme('dark');
+    } else {
+      setTheme('light');
+    }
+  }
 
   return (
     <div>
-      The Current Theme is: {theme}
-      <button type="button" onClick={() => setTheme('light')}>Light Mode</button>
-      <button type="button" onClick={() => setTheme('dark')}>Dark Mode</button>
+      <button type="button" onClick={clickHandler}>Toggle Theme</button>
     </div>
   )
 }
