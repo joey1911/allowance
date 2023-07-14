@@ -12,7 +12,9 @@ import {
   Button
 } from '@allowance/bash-ui';
 import { ObservablePrimitiveChildFns } from '@legendapp/state';
-import signup from '../../actions/signup';
+import signup, {
+  type SignupResponseError
+} from '../../actions/signup';
 
 import type { SignupDataBasic } from '../../types/user';
 
@@ -28,9 +30,22 @@ export default function SignupForm({
   } = useForm<SignupDataBasic>();
 
   const onSubmit: SubmitHandler<SignupDataBasic> = async (data) => {
-    const response = await signup(data.email, data.password);
+    const {
+      error
+    }: {
+      error: SignupResponseError
+    } = await signup(data.email, data.password);
 
-    if (response) {
+    if (error) {
+      alert(error.message);
+    } else {
+      /*
+      TODO: How do we setup an observer to handle "register event" so we can do things like
+      - Log Signup
+      - Send marketing email / follow up email
+      - Subscribe to email list
+      or, do we keep it KISS and just do it right here?
+      */
       signupState.set(1);
     }
   }
@@ -56,4 +71,4 @@ export default function SignupForm({
       </p>
     </form>
   )
-}
+};
