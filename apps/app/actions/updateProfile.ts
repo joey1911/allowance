@@ -1,4 +1,5 @@
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { revalidatePath } from 'next/cache';
 
 import type { Database } from '@/types/supabase';
 import type { AccountProfile } from '@/types/account';
@@ -29,5 +30,7 @@ export default async function updateProfile(
     alert('Profile updated!');
   } catch (error) {
     alert('Error updating the data!');
+  } finally {
+    revalidatePath('/dashboard/profile');
   }
 };
