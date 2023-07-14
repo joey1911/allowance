@@ -6,7 +6,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 const styles = css({
   background: 'inputBackground',
   borderBottom: '1px solid token(colors.inputBorder)',
-  padding: '3'
+  padding: '2'
 });
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
