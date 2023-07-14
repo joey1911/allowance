@@ -11,16 +11,7 @@ module.exports = {
         "extensions": [".js", ".jsx", ".tsx"]
       }
     ],
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "js": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never",
-      }
-    ]
+    "import/extensions": "off"
   },
   parserOptions: {
     babelOptions: {
