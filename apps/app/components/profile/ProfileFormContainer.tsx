@@ -1,4 +1,3 @@
-import { redirect } from 'next/navigation';
 import type { Session } from '@supabase/auth-helpers-nextjs';
 import getSession from '@/actions/getSession'; // eslint-disable-line import/no-unresolved
 import getProfile, {
@@ -9,11 +8,6 @@ import ProfileForm from './ProfileForm';
 
 const ProfileFormContainer = async () => {
   const session: Session | null = await getSession();
-
-  if (session === null || !session?.user) {
-    redirect('/');
-  }
-
   const {
     data,
     error
