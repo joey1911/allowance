@@ -5,6 +5,7 @@ import {
   useForm,
   SubmitHandler
 } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
 import {
   Label,
   Input,
@@ -25,6 +26,7 @@ export default function ProfileForm({
   profileData: AccountProfile
   user: User
 }) {
+  const router = useRouter();
   const {
     register,
     setValue,
@@ -36,6 +38,7 @@ export default function ProfileForm({
 
   const onSubmit: SubmitHandler<AccountProfile> = (data) => {
     updateProfile(data, user.id);
+    router.refresh(); // Because of server side, need to refresh ... is that really the way?
   }
 
   return (
