@@ -35,6 +35,9 @@ importers:
       '@allowance/slade':
         specifier: workspace:*
         version: link:../../packages/slade
+      '@pandacss/preset-panda':
+        specifier: ^0.6.0
+        version: 0.6.0
       '@supabase/auth-helpers-nextjs':
         specifier: ^0.7.2
         version: 0.7.2(@supabase/supabase-js@2.26.0)
@@ -99,6 +102,9 @@ importers:
       '@legendapp/state':
         specifier: ^1.3.6
         version: 1.3.6(react@18.2.0)
+      '@pandacss/preset-panda':
+        specifier: ^0.6.0
+        version: 0.6.0
       '@supabase/auth-helpers-nextjs':
         specifier: ^0.7.2
         version: 0.7.2(@supabase/supabase-js@2.26.0)
@@ -147,13 +153,11 @@ importers:
         version: 4.9.5
 
   packages/bash-design:
-    devDependencies:
-      '@pandacss/dev':
-        specifier: ^0.5.0
-        version: 0.5.0(@types/node@17.0.45)(@types/react-dom@18.2.0)(@types/react@18.2.0)(astro@2.7.3)(typescript@4.9.5)
+    dependencies:
       '@pandacss/types':
         specifier: ^0.5.0
         version: 0.5.0
+    devDependencies:
       eslint-config-custom:
         specifier: workspace:*
         version: link:../eslint-config-custom
@@ -1336,6 +1340,12 @@ packages:
       '@pandacss/types': 0.5.0
     dev: true
 
+  /@pandacss/preset-panda@0.6.0:
+    resolution: {integrity: sha512-C+bZHd3jdRQXHa3Gk6z/eQDTWyJZVK9Rwb/VPA4LmEQrMBvDbfnKRaWVe2dZ3RTQzyhDGlVlMK0RlTGRatuIow==}
+    dependencies:
+      '@pandacss/types': 0.6.0
+    dev: false
+
   /@pandacss/shared@0.5.0:
     resolution: {integrity: sha512-PrVMtEeOGzRv0o+xhjSBNJskU5y/mFWf0qlJGV9zbyHPJZwNgL9ABxx0AeC++8Up5jO18Iwbwe0V4wMihTB/+g==}
     dev: true
@@ -1412,7 +1422,10 @@ packages:
 
   /@pandacss/types@0.5.0:
     resolution: {integrity: sha512-mSnAEcB2ENTze4+poKLn6HDzjJLRbwJ3snzKcfuGej81MrcUppullmiUr+IsfqY9XnaZR7DmR950PKrKmQvEhw==}
-    dev: true
+
+  /@pandacss/types@0.6.0:
+    resolution: {integrity: sha512-KHaBH9eBj5VWrUJstUzj1T1ckfwSBQ50hj4PjOBu8sEDK5yIAPgg7J1hm2H0ytm0RsP7iAfarebxgmJYxpSPIA==}
+    dev: false
 
   /@pkgr/utils@2.4.1:
     resolution: {integrity: sha512-JOqwkgFEyi+OROIyq7l4Jy28h/WwhDnG/cPkXG2Z1iFbubB6jsHW1NDvmyOzTBxHr3yg68YGirmh1JUgMqa+9w==}

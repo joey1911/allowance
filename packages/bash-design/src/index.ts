@@ -1,9 +1,32 @@
-export { globalCss as GlobalCss } from './tokens/global';
-export { colors as TokensColors } from './tokens/colors';
-export { spacing as TokensSpacing } from './tokens/spacing';
+import type { Config } from '@pandacss/types';
+import semanticColors from './tokens/colors.semantic';
+import spacing from './tokens/spacing';
+import buttonRecipe from "./recipes/button.recipe";
+import checkStyleInputRecipe from './recipes/checkStyleInput.recipe';
+import globalCss from './tokens/global';
+import textStyles from './tokens/text-styles';
+import keyframes from './tokens/keyframes';
 
-export { colors as SemanticTokensColors } from './tokens/colors.semantic';
+const definePreset = <T extends Config>(config: T) => config;
 
-export { textStyles } from './tokens/text-styles';
+const presetBash = definePreset({
+  globalCss,
+  theme: {
+    textStyles,
+    extend: {
+      keyframes,
+      tokens: {
+        spacing
+      },
+      semanticTokens: {
+        colors: semanticColors,
+      },
+      recipes: {
+        button: buttonRecipe,
+        checkStyleInput: checkStyleInputRecipe
+      },
+    },
+  },
+});
 
-export { default as Recipes } from './recipes';
+export default presetBash;

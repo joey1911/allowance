@@ -22,14 +22,14 @@ const sectionStyle = cva({
   variants: {
     type: {
       'hero': {
-        background: 'sectionHeroBackground',
+        background: 'background.slate',
         color: 'sectionHeroColor'
       },
       'main': {
-        background: 'sectionMainBackground'
+        background: 'background.accent.blue.subtle'
       },
       'body': {
-        background: 'sectionBodyBackground'
+        background: 'background.slate.subtle'
       }
     }
   }

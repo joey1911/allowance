@@ -1,6 +1,6 @@
-import { defineTokens } from '@pandacss/dev';
+import type { Tokens } from '@pandacss/types';
 
-export const spacing = defineTokens.spacing({
+const spacing: Tokens['colors'] = {
   xs: {
     value: '{spacing.1.5}'
   },
@@ -16,4 +16,6 @@ export const spacing = defineTokens.spacing({
   xl: {
     value: '{spacing.16}'
   }
-});
+};
+
+export default spacing;

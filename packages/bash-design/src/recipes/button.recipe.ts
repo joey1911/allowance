@@ -1,6 +1,8 @@
-import { defineRecipe } from '@pandacss/dev';
+import type { RecipeConfig } from '@pandacss/types';
 
-export const buttonRecipe = defineRecipe({
+const defineRecipe = <T extends RecipeConfig>(config: T) => config;
+
+const buttonRecipe = defineRecipe({
   name: 'button',
   description: 'The styles for the Button component',
   base: {
@@ -50,3 +52,5 @@ export const buttonRecipe = defineRecipe({
     }
   }
 });
+
+export default buttonRecipe;

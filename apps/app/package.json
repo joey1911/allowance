@@ -14,6 +14,7 @@
     "@allowance/bash-design": "workspace:*",
     "@allowance/bash-ui": "workspace:*",
     "@allowance/slade": "workspace:*",
+    "@pandacss/preset-panda": "^0.6.0",
     "@supabase/auth-helpers-nextjs": "^0.7.2",
     "@supabase/auth-ui-react": "^0.4.2",
     "@supabase/auth-ui-shared": "^0.1.6",

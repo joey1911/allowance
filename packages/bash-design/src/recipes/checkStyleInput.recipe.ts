@@ -1,6 +1,8 @@
-import { defineRecipe } from '@pandacss/dev';
+import type { RecipeConfig } from '@pandacss/types';
 
-export const checkStyleInputRecipe = defineRecipe({
+const defineRecipe = <T extends RecipeConfig>(config: T) => config;
+
+const checkStyleInputRecipe = defineRecipe({
   name: 'checkStyleInput',
   description: 'The styles for checkbox and radio input',
   base: {
@@ -76,3 +78,5 @@ export const checkStyleInputRecipe = defineRecipe({
     }
   }
 });
+
+export default checkStyleInputRecipe;

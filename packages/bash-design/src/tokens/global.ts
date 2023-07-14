@@ -1,6 +1,4 @@
-import { defineGlobalStyles } from "@pandacss/dev";
-
-export const globalCss = defineGlobalStyles({
+const globalCss = {
   'html, body': {
     color: 'neutral.900',
     lineHeight: '1.5',
@@ -21,4 +19,6 @@ export const globalCss = defineGlobalStyles({
   'p': {
     marginBottom: '2'
   }
-});
+};
+
+export default globalCss;

@@ -14,6 +14,7 @@
     "@allowance/bash-design": "workspace:*",
     "@allowance/bash-ui": "workspace:*",
     "@legendapp/state": "^1.3.6",
+    "@pandacss/preset-panda": "^0.6.0",
     "@supabase/auth-helpers-nextjs": "^0.7.2",
     "@supabase/supabase-js": "^2.26.0",
     "encoding": "^0.1.13",

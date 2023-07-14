@@ -1,6 +1,4 @@
-import { defineTextStyles } from '@pandacss/dev';
-
-export const textStyles = defineTextStyles({
+const textStyles ={
   h1: {
     description: 'H1 Font style',
     value: {
@@ -85,4 +83,6 @@ export const textStyles = defineTextStyles({
       textTransform: 'none'
     }
   }
-});
+};
+
+export default textStyles;
