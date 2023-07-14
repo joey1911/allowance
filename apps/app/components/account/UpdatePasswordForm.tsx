@@ -16,7 +16,7 @@ interface UpdatePasswordInput {
   password: string
 }
 
-const UpdatePasswordForm = () => {
+export default function UpdatePasswordForm() {
   const {
     register,
     handleSubmit,
@@ -27,9 +27,9 @@ const UpdatePasswordForm = () => {
     password
   }) => {
     if (await updatePassword(password)) {
-      console.log('success');
+      // Success
     } else {
-      console.log('error');
+      // Error
     }
   };
 
@@ -47,6 +47,4 @@ const UpdatePasswordForm = () => {
       </p>
     </form>
   )
-};
-
-export default UpdatePasswordForm;
+}

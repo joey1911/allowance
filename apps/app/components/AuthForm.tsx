@@ -8,6 +8,7 @@ import type { Database } from '@/types/supabase';
 
 export default function AuthForm() {
   const supabase = createClientComponentClient<Database>();
+  const callbackUrl = `${process.env['NEXT_PUBLIC_APP_URL']}/api/auth/callback`;
 
   return (
     <>
@@ -18,7 +19,7 @@ export default function AuthForm() {
         theme="dark"
         showLinks={false}
         providers={[]}
-        redirectTo={process.env.NEXT_PUBLIC_APP_URL + "/api/auth/callback"}
+        redirectTo={callbackUrl}
       />
       <Auth
         supabaseClient={supabase}
@@ -27,7 +28,7 @@ export default function AuthForm() {
         theme="dark"
         showLinks={false}
         providers={[]}
-        redirectTo={process.env.NEXT_PUBLIC_APP_URL + "/api/auth/callback"}
+        redirectTo={callbackUrl}
       />
       <Auth
         supabaseClient={supabase}
@@ -36,7 +37,7 @@ export default function AuthForm() {
         theme="dark"
         showLinks={false}
         providers={[]}
-        redirectTo={process.env.NEXT_PUBLIC_APP_URL + "/api/auth/callback"}
+        redirectTo={callbackUrl}
       />
       <Auth
         supabaseClient={supabase}
@@ -45,7 +46,7 @@ export default function AuthForm() {
         theme="dark"
         showLinks={false}
         providers={[]}
-        redirectTo={process.env.NEXT_PUBLIC_APP_URL + "/api/auth/callback"}
+        redirectTo={callbackUrl}
       />
     </>
   )

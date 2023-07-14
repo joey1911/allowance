@@ -5,7 +5,9 @@ import {
 } from '@allowance/bash-ui';
 import SignOutButton from '@/components/SignOutButton';
 import DashboardNavbar from '@/components/DashboardNavbar';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { flex } from '@allowance/styled-system/patterns';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { css } from '@allowance/styled-system/css';
 
 export default function DashboardLayout({

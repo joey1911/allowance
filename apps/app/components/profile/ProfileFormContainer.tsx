@@ -1,4 +1,3 @@
-import ProfileForm from './ProfileForm';
 import {
   getSession,
   getProfile
@@ -6,6 +5,8 @@ import {
 
 import type { Session } from '@supabase/auth-helpers-nextjs';
 import type { AccountProfile } from '@/types/account';
+
+import ProfileForm from './ProfileForm';
 
 const ProfileFormContainer = async () => {
   const session: Session | null = await getSession();
@@ -31,7 +32,8 @@ const ProfileFormContainer = async () => {
 
     return <ProfileForm profileData={profileData} user={session.user} />
   } catch (error) {
-    throw error;
+    // record error
+    return <div>{error.message}</div>
   } finally {
     // log access attempts potentially?
     // this block will execute regardless of the try result

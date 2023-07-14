@@ -18,7 +18,7 @@ interface LoginInput {
   password: string
 }
 
-const LoginForm = () => {
+export default function LoginForm() {
   const router = useRouter();
 
   const {
@@ -56,6 +56,4 @@ const LoginForm = () => {
       </p>
     </form>
   )
-};
-
-export default LoginForm;
+}

@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { signOut } from '@/actions/auth';
 import { Button } from '@allowance/bash-ui';
 
-const SignOutButton = () => {
+export default function SignOutButton() {
   const router = useRouter();
 
   const signoutHandler = async () => {
@@ -18,6 +18,4 @@ const SignOutButton = () => {
   return (
     <Button size="small" onClick={signoutHandler}>Sign out</Button>
   )
-};
-
-export default SignOutButton;
+}

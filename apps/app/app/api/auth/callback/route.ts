@@ -5,6 +5,7 @@ import { createRouteHandlerClient } from '@supabase/auth-helpers-nextjs';
 import type { NextRequest } from 'next/server';
 import type { Database } from '@/types/supabase';
 
+// eslint-disable-next-line import/prefer-default-export
 export async function GET(request: NextRequest) {
   const requestUrl = new URL(request.url);
   const code = requestUrl.searchParams.get('code');

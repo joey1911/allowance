@@ -10,7 +10,7 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import type { Database } from '@/types/supabase';
 import type { AccountProfile } from '@/types/account';
 
-const AvatarUpload = ({
+export default function AvatarUpload({
   uid,
   url,
   size,
@@ -19,8 +19,9 @@ const AvatarUpload = ({
   uid: string
   url: AccountProfile['avatar_url']
   size: number
+  // eslint-disable-next-line no-unused-vars
   onUpload: (avatarUrl: string) => void
-}) => {
+}) {
   const supabase = createClientComponentClient<Database>();
   const [filePath, setFilePath] = useState<AccountProfile['avatar_url']>(url);
   const [avatarUrl, setAvatarUrl] = useState<AccountProfile['avatar_url']>(null);
@@ -37,7 +38,7 @@ const AvatarUpload = ({
 
         setAvatarUrl(URL.createObjectURL(data));
       } catch (error) {
-        console.log('Error downloading image: ', error);
+        // Error Downloading Image
       }
     }
 
@@ -56,18 +57,18 @@ const AvatarUpload = ({
 
       const file = event.target.files[0];
       const fileExt = file.name.split('.').pop();
-      const filePath = `${uid}-${Math.random()}.${fileExt}`;
+      const uploadFilePath = `${uid}-${Math.random()}.${fileExt}`;
 
-      let { error: uploadError } = await supabase.storage.from('avatars').upload(filePath, file);
+      const { error: uploadError } = await supabase.storage.from('avatars').upload(uploadFilePath, file);
 
       if (uploadError) {
         throw uploadError;
       }
 
-      setFilePath(filePath);
-      onUpload(filePath);
+      setFilePath(uploadFilePath);
+      onUpload(uploadFilePath);
     } catch (error) {
-      alert('Error uploading avatar!');
+      // Error uploading Image
     } finally {
       setUploading(false);
     }
@@ -112,6 +113,4 @@ const AvatarUpload = ({
       </div>
     </div>
   )
-};
-
-export default AvatarUpload;
+}

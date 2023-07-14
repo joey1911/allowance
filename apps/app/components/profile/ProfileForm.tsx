@@ -11,19 +11,20 @@ import {
   InputGroup,
   Button
 } from '@allowance/bash-ui';
-import AvatarUpload from './AvatarUpload';
 import updateProfile from '@/actions/updateProfile'; // have to import this directly because it's client side...
 
 import type { User } from '@supabase/auth-helpers-nextjs';
 import type { AccountProfile } from '@/types/account';
 
-const ProfileForm = ({
+import AvatarUpload from './AvatarUpload';
+
+export default function ProfileForm({
   profileData,
   user
 }: {
   profileData: AccountProfile
   user: User
-}) => {
+}) {
   const {
     register,
     setValue,
@@ -101,6 +102,4 @@ const ProfileForm = ({
       </p>
     </form>
   )
-};
-
-export default ProfileForm;
+}

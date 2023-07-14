@@ -22,15 +22,14 @@ const companyLinks = [
 const CompanyMenuItems = (
   <>
     {companyLinks.map((item, index) => (
+      // eslint-disable-next-line react/no-array-index-key
       <MenuItem key={`dashboardNavbarItem-${index}`} linkItem={<Link href={item.link}>{item.title}</Link>} />
     ))}
   </>
 );
 
-const DashboardNavbar = () => {
+export default function DashboardNavbar() {
   return (
     <Navbar menuItems={CompanyMenuItems} menuPlacement="left" menuAlignment="vertical" />
-  );
-};
-
-export default DashboardNavbar;
+  )
+}
