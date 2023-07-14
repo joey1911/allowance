@@ -1,7 +1,6 @@
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 import type { Database } from '../types/supabase';
-// import type { User } from '../types/user';
 
 export default async function signup(
   email: string,
