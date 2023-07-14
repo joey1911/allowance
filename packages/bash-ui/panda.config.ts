@@ -14,7 +14,7 @@ export default defineConfig({
 
   // Where to look for your css declarations
   include: [
-    "./node_modules/@allowance/bash-design/src/**/*.tsx",
+    "./node_modules/@allowance/bash-design/src/**/*.{js,jsx,ts,tsx}",
     "./src/**/*.{js,jsx,ts,tsx}"
   ],
 

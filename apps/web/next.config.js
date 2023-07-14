@@ -1,4 +1,4 @@
 module.exports = {
   reactStrictMode: true,
-  transpilePackages: ["bash-ui"]
+  transpilePackages: ["bash-ui", "bash-design"]
 };
