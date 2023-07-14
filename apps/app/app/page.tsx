@@ -2,7 +2,7 @@ import {
   Section,
   Container
 } from '@allowance/bash-ui';
-import LoginForm from '@/components/LoginForm';
+import LoginForm from '@/components/LoginForm'; // eslint-disable-line import/no-unresolved
 // import { Client } from '@allowance/slade';
 
 export default async function Page() {

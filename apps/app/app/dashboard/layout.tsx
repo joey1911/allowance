@@ -3,12 +3,12 @@ import {
   Container,
   Box
 } from '@allowance/bash-ui';
-import SignOutButton from '@/components/SignOutButton';
-import DashboardNavbar from '@/components/DashboardNavbar';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { flex } from '@allowance/styled-system/patterns';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { css } from '@allowance/styled-system/css';
+import SignOutButton from '@/components/SignOutButton'; // eslint-disable-line import/no-unresolved
+import DashboardNavbar from '@/components/DashboardNavbar'; // eslint-disable-line import/no-unresolved
 
 export default function DashboardLayout({
   children
