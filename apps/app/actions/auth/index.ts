@@ -17,7 +17,7 @@ export async function loginWithPassword(email: string, password: string) {
   }
 };
 
-type LoginResponse = Awaited<ReturnType<typeof updatePassword>>
+type LoginResponse = Awaited<ReturnType<typeof loginWithPassword>>
 export type LoginResponseSuccess = LoginResponse['data']
 export type LoginResponseError = LoginResponse['error']
 
