@@ -11,7 +11,8 @@ import {
   InputGroup,
   Button
 } from '@allowance/bash-ui';
-import { loginWithPassword } from '@/actions/auth';
+import { loginWithPassword } from '@/actions/auth'; // eslint-disable-line import/no-unresolved
+import type { LoginResponseError } from '@/actions/auth';
 
 interface LoginInput {
   email: string,
@@ -24,6 +25,7 @@ export default function LoginForm() {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors }
   } = useForm<LoginInput>();
 
@@ -31,8 +33,18 @@ export default function LoginForm() {
     email,
     password
   }) => {
-    await loginWithPassword(email, password);
-    router.refresh();
+    const {
+      error
+    }: {
+      error: LoginResponseError
+    } = await loginWithPassword(email, password);
+
+    if (error) {
+      alert('Username or password are incorrect');
+      setValue('password', '');
+    } else {
+      router.refresh();
+    }
   };
 
   return (
@@ -56,4 +68,4 @@ export default function LoginForm() {
       </p>
     </form>
   )
-}
+};

@@ -1,22 +1,19 @@
-import {
-  getSession,
-  getProfile
-} from '@/actions/index';
-
+import { redirect } from 'next/navigation';
 import type { Session } from '@supabase/auth-helpers-nextjs';
+import getSession from '@/actions/getSession'; // eslint-disable-line import/no-unresolved
+import getProfile from '@/actions/profile/getProfile'; // eslint-disable-line import/no-unresolved
 import type { AccountProfile } from '@/types/account';
-
 import ProfileForm from './ProfileForm';
 
 const ProfileFormContainer = async () => {
   const session: Session | null = await getSession();
 
-  if (session === null) {
-    // throw error?? redirect to /signin?
+  if (session === null || !session?.user) {
+    redirect('/');
   }
 
   try {
-    const data: AccountProfile = await getProfile(session);
+    const data: AccountProfile = await getProfile(session.user.id);
     // Default missing values to '' so React Hook Form doesn't complain
     const profileData = {
       first_name: data?.first_name ?? '',

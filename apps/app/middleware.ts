@@ -24,6 +24,7 @@ export async function middleware(req: NextRequest) {
   }
 
   // If the user is not signed in and the current path is not / redirect the user to /
+  // *** NOTE: Can't depend on this to protect routes. Protected routes should do their own verification!
   if (!user && req.nextUrl.pathname !== '/') {
     return NextResponse.redirect(new URL('/', req.url));
   }

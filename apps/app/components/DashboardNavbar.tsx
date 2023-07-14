@@ -32,4 +32,4 @@ export default function DashboardNavbar() {
   return (
     <Navbar menuItems={CompanyMenuItems} menuPlacement="left" menuAlignment="vertical" />
   )
-}
+};

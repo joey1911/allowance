@@ -6,19 +6,20 @@ export async function loginWithPassword(email: string, password: string) {
   const supabase = createClientComponentClient<Database>();
 
   try {
-    const {
-      data,
-      error
-    } = await supabase.auth.signInWithPassword({
-      email: email,
-      password: password
+    return await supabase.auth.signInWithPassword({
+      email,
+      password
     });
-  } catch(err) {
-    // Log Error
+  } catch(error) {
+    return error;
   } finally {
     // Log login attempt
   }
 };
+
+type LoginResponse = Awaited<ReturnType<typeof updatePassword>>
+export type LoginResponseSuccess = LoginResponse['data']
+export type LoginResponseError = LoginResponse['error']
 
 export async function signOut() {
   const supabase = createClientComponentClient<Database>();
@@ -27,32 +28,26 @@ export async function signOut() {
 
   if (!error) {
     return true;
-  } else {
-    return false;
   }
-}
+
+  return false;
+};
 
 export async function updatePassword(password: string) {
   const supabase = createClientComponentClient<Database>();
 
   try {
-    const {
-      data,
-      error
-    } = await supabase.auth.updateUser({
-      password: password
-    });
-
-    if (data) {
-      return true;
-    }
-
-    if (error) {
-      return false;
-    }
-  } catch(err) {
-    //Log Error
+    return await supabase.auth.updateUser({
+      password
+    });  
+  } catch (error) {
+    return error;
   } finally {
-    // Log password reset request
+    // Log password update
+    // Send an email to let them know the password was updated (or attempted)
   }
 };
+
+type UpdatePasswordResponse = Awaited<ReturnType<typeof updatePassword>>
+export type UpdatePasswordResponseSuccess = UpdatePasswordResponse['data']
+export type UpdatePasswordResponseError = UpdatePasswordResponse['error']

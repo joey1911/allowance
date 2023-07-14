@@ -1,22 +1,20 @@
 'use client'
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import {
   useForm,
   SubmitHandler
 } from 'react-hook-form';
-import { useRouter } from 'next/navigation';
 import {
   Label,
   Input,
   InputGroup,
   Button
 } from '@allowance/bash-ui';
-import updateProfile from '@/actions/updateProfile'; // have to import this directly because it's client side...
-
 import type { User } from '@supabase/auth-helpers-nextjs';
+import updateProfile from '@/actions/profile/updateProfile'; // eslint-disable-line import/no-unresolved
 import type { AccountProfile } from '@/types/account';
-
 import AvatarUpload from './AvatarUpload';
 
 export default function ProfileForm({
@@ -38,8 +36,8 @@ export default function ProfileForm({
 
   const onSubmit: SubmitHandler<AccountProfile> = (data) => {
     updateProfile(data, user.id);
-    router.refresh(); // Because of server side, need to refresh ... is that really the way?
-  }
+    router.refresh();
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -105,4 +103,4 @@ export default function ProfileForm({
       </p>
     </form>
   )
-}
+};

@@ -1,8 +1,8 @@
 'use client'
 
 import { useRouter } from 'next/navigation';
-import { signOut } from '@/actions/auth';
 import { Button } from '@allowance/bash-ui';
+import { signOut } from '@/actions/auth'; // eslint-disable-line import/no-unresolved
 
 export default function SignOutButton() {
   const router = useRouter();
@@ -18,4 +18,4 @@ export default function SignOutButton() {
   return (
     <Button size="small" onClick={signoutHandler}>Sign out</Button>
   )
-}
+};

@@ -6,7 +6,6 @@ import React, {
 } from 'react';
 import Image from 'next/image';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-
 import type { Database } from '@/types/supabase';
 import type { AccountProfile } from '@/types/account';
 
@@ -113,4 +112,4 @@ export default function AvatarUpload({
       </div>
     </div>
   )
-}
+};

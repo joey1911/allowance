@@ -10,7 +10,8 @@ import {
   InputGroup,
   Button
 } from '@allowance/bash-ui';
-import { updatePassword } from '@/actions/auth';
+import { updatePassword } from '@/actions/auth'; // eslint-disable-line import/no-unresolved
+import type { UpdatePasswordResponseError } from '@/actions/auth';
 
 interface UpdatePasswordInput {
   password: string
@@ -20,17 +21,26 @@ export default function UpdatePasswordForm() {
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors }
   } = useForm<UpdatePasswordInput>();
 
   const onSubmit: SubmitHandler<UpdatePasswordInput> = async ({
     password
   }) => {
-    if (await updatePassword(password)) {
-      // Success
+    const {
+      error
+    }: {
+      error: UpdatePasswordResponseError
+    } = await updatePassword(password);
+
+    if (error) {
+      alert('There was an error updating your password');
     } else {
-      // Error
+      alert('Password updated');
     }
+
+    setValue('password', '');
   };
 
   return (
@@ -47,4 +57,4 @@ export default function UpdatePasswordForm() {
       </p>
     </form>
   )
-}
+};

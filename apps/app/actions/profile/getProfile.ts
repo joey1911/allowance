@@ -1,12 +1,10 @@
 import { cookies } from 'next/headers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-
-import type { Session } from '@supabase/auth-helpers-nextjs';
 import type { Database } from '@/types/supabase';
 import {
   type AccountProfileRow,
   type AccountProfile
-} from '@/types/account';
+} from '@/types/account'; // eslint-disable-line import/no-unresolved
 
 /**
  * Get user's profile data
@@ -14,10 +12,10 @@ import {
  * @returns {object} profileData - Current profile data
  * @returns {boolean} false - If user isn't found, return false
  */
-export default async function getProfile(session: Session | null): Promise<AccountProfile> {
+export default async function getProfile(userId: string): Promise<AccountProfile> {
   const supabase = createServerComponentClient<Database>({ cookies });
 
-  let {
+  const {
     data,
     error,
     status
@@ -28,7 +26,7 @@ export default async function getProfile(session: Session | null): Promise<Accou
   } = await supabase
     .from('profiles')
     .select(`first_name, last_name, address, address2, city, state, zip_code, dob, avatar_url`)
-    .eq('id', session?.user?.id)
+    .eq('id', userId)
     .single();
 
   if (error && status !== 406) {
