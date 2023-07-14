@@ -46,7 +46,7 @@ export default function SignupForm({
       - Subscribe to email list
       or, do we keep it KISS and just do it right here?
       */
-      signupState.set(1);
+      signupState.set(2);
     }
   }
 

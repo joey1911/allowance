@@ -40,4 +40,4 @@ export default function MainNavbar() {
       <Navbar menuItems={SecondMenuItems} menuPlacement="right" menuAlignment="horizontal" />
     </div>
   )
-}
+};

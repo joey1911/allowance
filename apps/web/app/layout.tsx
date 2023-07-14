@@ -3,7 +3,7 @@ import React from 'react';
 import { Container, Box } from '@allowance/bash-ui';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { flex } from '@allowance/styled-system/patterns';
-import MainNavbar from '@/components/MainNavbar';
+import MainNavbar from '@/components/MainNavbar'; // eslint-disable-line import/no-unresolved
 
 export default function RootLayout({
   children,
