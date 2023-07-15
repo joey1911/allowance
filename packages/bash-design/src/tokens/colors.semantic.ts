@@ -56,17 +56,6 @@ const semanticColors: SemanticTokens['colors'] = {
           value: { base: "{colors.900}", _dark: "{colors.teal.200}" },
         },
       },
-      magenta: {
-        DEFAULT: {
-          value: {
-            base: "{colors.magenta.800}",
-            _dark: "{colors.magenta.300}",
-          },
-        },
-        bolder: {
-          value: { base: "{colors.900}", _dark: "{colors.magenta.200}" },
-        },
-      },
       gray: {
         DEFAULT: { value: "{colors.stone.800}" },
         bolder: { value: "{colors.stone.950}" },
@@ -137,9 +126,6 @@ const semanticColors: SemanticTokens['colors'] = {
       teal: {
         value: { base: "{colors.teal.600}", _dark: "{colors.teal.500}" },
       },
-      magenta: {
-        value: { base: "{colors.magenta.600}", _dark: "{colors.magenta.500}" },
-      },
       gray: {
         value: "{colors.stone.600}",
       },
@@ -209,9 +195,6 @@ const semanticColors: SemanticTokens['colors'] = {
       teal: {
         value: { base: "{colors.teal.600}", _dark: "{colors.teal.500}" },
       },
-      magenta: {
-        value: { base: "{colors.magenta.600}", _dark: "{colors.magenta.500}" },
-      },
       gray: {
         value: "{colors.stone.600}",
       },
@@ -254,7 +237,7 @@ const semanticColors: SemanticTokens['colors'] = {
     accent: {
       blue: {
         subtlest: {
-          value: { base: "{colors.blue.100}", _dark: "{colors.blue.1000}" },
+          value: { base: "{colors.blue.100}", _dark: "{colors.blue.950}" },
         },
         subtler: {
           value: { base: "{colors.blue.200}", _dark: "{colors.blue.900}" },
@@ -268,7 +251,7 @@ const semanticColors: SemanticTokens['colors'] = {
       },
       red: {
         subtlest: {
-          value: { base: "{colors.red.100}", _dark: "{colors.red.1000}" },
+          value: { base: "{colors.red.100}", _dark: "{colors.red.950}" },
         },
         subtler: {
           value: { base: "{colors.red.200}", _dark: "{colors.red.900}" },
@@ -280,9 +263,23 @@ const semanticColors: SemanticTokens['colors'] = {
           value: { base: "{colors.red.700}", _dark: "{colors.red.400}" },
         },
       },
+      rose: {
+        subtlest: {
+          value: { base: "{colors.rose.100}", _dark: "{colors.rose.950}" },
+        },
+        subtler: {
+          value: { base: "{colors.rose.200}", _dark: "{colors.rose.900}" },
+        },
+        subtle: {
+          value: { base: "{colors.rose.400}", _dark: "{colors.rose.800}" },
+        },
+        bolder: {
+          value: { base: "{colors.rose.700}", _dark: "{colors.rose.400}" },
+        },
+      },
       orange: {
         subtlest: {
-          value: { base: "{colors.orange.100}", _dark: "{colors.orange.1000}" },
+          value: { base: "{colors.orange.100}", _dark: "{colors.orange.950}" },
         },
         subtler: {
           value: { base: "{colors.orange.200}", _dark: "{colors.orange.900}" },
@@ -296,7 +293,7 @@ const semanticColors: SemanticTokens['colors'] = {
       },
       yellow: {
         subtlest: {
-          value: { base: "{colors.yellow.100}", _dark: "{colors.yellow.1000}" },
+          value: { base: "{colors.yellow.100}", _dark: "{colors.yellow.950}" },
         },
         subtler: {
           value: { base: "{colors.yellow.200}", _dark: "{colors.yellow.900}" },
@@ -310,7 +307,7 @@ const semanticColors: SemanticTokens['colors'] = {
       },
       green: {
         subtlest: {
-          value: { base: "{colors.green.100}", _dark: "{colors.green.1000}" },
+          value: { base: "{colors.green.100}", _dark: "{colors.green.950}" },
         },
         subtler: {
           value: { base: "{colors.green.200}", _dark: "{colors.green.900}" },
@@ -324,7 +321,7 @@ const semanticColors: SemanticTokens['colors'] = {
       },
       purple: {
         subtlest: {
-          value: { base: "{colors.purple.100}", _dark: "{colors.purple.1000}" },
+          value: { base: "{colors.purple.100}", _dark: "{colors.purple.950}" },
         },
         subtler: {
           value: { base: "{colors.purple.200}", _dark: "{colors.purple.900}" },
@@ -338,7 +335,7 @@ const semanticColors: SemanticTokens['colors'] = {
       },
       teal: {
         subtlest: {
-          value: { base: "{colors.teal.100}", _dark: "{colors.teal.1000}" },
+          value: { base: "{colors.teal.100}", _dark: "{colors.teal.950}" },
         },
         subtler: {
           value: { base: "{colors.teal.200}", _dark: "{colors.teal.900}" },
@@ -348,32 +345,6 @@ const semanticColors: SemanticTokens['colors'] = {
         },
         bolder: {
           value: { base: "{colors.teal.700}", _dark: "{colors.teal.400}" },
-        },
-      },
-      magenta: {
-        subtlest: {
-          value: {
-            base: "{colors.magenta.100}",
-            _dark: "{colors.magenta.1000}",
-          },
-        },
-        subtler: {
-          value: {
-            base: "{colors.magenta.200}",
-            _dark: "{colors.magenta.900}",
-          },
-        },
-        subtle: {
-          value: {
-            base: "{colors.magenta.400}",
-            _dark: "{colors.magenta.800}",
-          },
-        },
-        bolder: {
-          value: {
-            base: "{colors.magenta.700}",
-            _dark: "{colors.magenta.400}",
-          },
         },
       },
       gray: {
@@ -442,7 +413,7 @@ const semanticColors: SemanticTokens['colors'] = {
     },
     selected: {
       DEFAULT: {
-        value: { base: "{colors.blue.100}", _dark: "{colors.blue.1000}" },
+        value: { base: "{colors.blue.100}", _dark: "{colors.blue.950}" },
       },
       hovered: {
         value: { base: "{colors.blue.200}", _dark: "{colors.blue.900}" },
@@ -488,7 +459,7 @@ const semanticColors: SemanticTokens['colors'] = {
     },
     warning: {
       DEFAULT: {
-        value: { base: "{colors.yellow.100}", _dark: "{colors.yellow.1000}" },
+        value: { base: "{colors.yellow.100}", _dark: "{colors.yellow.950}" },
       },
       hovered: {
         value: { base: "{colors.yellow.200}", _dark: "{colors.yellow.900}" },
@@ -510,7 +481,7 @@ const semanticColors: SemanticTokens['colors'] = {
     },
     success: {
       DEFAULT: {
-        value: { base: "{colors.green.100}", _dark: "{colors.green.1000}" },
+        value: { base: "{colors.green.100}", _dark: "{colors.green.950}" },
       },
       hovered: {
         value: { base: "{colors.green.200}", _dark: "{colors.green.900}" },
@@ -532,7 +503,7 @@ const semanticColors: SemanticTokens['colors'] = {
     },
     discovery: {
       DEFAULT: {
-        value: { base: "{colors.purple.100}", _dark: "{colors.purple.1000}" },
+        value: { base: "{colors.purple.100}", _dark: "{colors.purple.950}" },
       },
       hovered: {
         value: { base: "{colors.purple.200}", _dark: "{colors.purple.900}" },
@@ -554,7 +525,7 @@ const semanticColors: SemanticTokens['colors'] = {
     },
     information: {
       DEFAULT: {
-        value: { base: "{colors.blue.100}", _dark: "{colors.blue.1000}" },
+        value: { base: "{colors.blue.100}", _dark: "{colors.blue.950}" },
       },
       hovered: {
         value: { base: "{colors.blue.200}", _dark: "{colors.blue.900}" },
@@ -576,7 +547,7 @@ const semanticColors: SemanticTokens['colors'] = {
     },
     danger: {
       DEFAULT: {
-        value: { base: "{colors.red.100}", _dark: "{colors.red.1000}" },
+        value: { base: "{colors.red.100}", _dark: "{colors.red.950}" },
       },
       hovered: {
         value: { base: "{colors.red.200}", _dark: "{colors.red.900}" },

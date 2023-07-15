@@ -16,20 +16,18 @@ type SectionProps = BaseProps & Omit<React.HTMLAttributes<HTMLElement>, keyof Ba
 
 const sectionStyle = cva({
   base: {
-    boxSizing: 'border-box',
-    background: 'transparent'
+    boxSizing: 'border-box'
   },
   variants: {
     type: {
       'hero': {
-        background: 'background.slate',
-        color: 'sectionHeroColor'
+        layerStyle: 'hero'
       },
       'main': {
-        background: 'background.accent.blue.subtle'
+        layerStyle: 'main'
       },
       'body': {
-        background: 'background.slate.subtle'
+        layerStyle: 'body'
       }
     }
   }
