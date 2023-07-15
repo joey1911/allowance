@@ -16,8 +16,8 @@
     "clean": "rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
-    "@pandacss/dev": "^0.5.0",
-    "@pandacss/types": "^0.5.0",
+    "@pandacss/dev": "^0.6.0",
+    "@pandacss/types": "^0.6.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "eslint-config-custom": "workspace:*",
