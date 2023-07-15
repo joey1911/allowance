@@ -10,8 +10,6 @@
   ],
   "scripts": {
     "prepare": "panda codegen --clean",
-    "build": "tsup src/index.ts --external @allowance/styled-system",
-    "dev": "tsup src/index.ts --watch --external @allowance/styled-system",
     "lint": "eslint \"src/**/*.ts*\"",
     "clean": "rm -rf node_modules && rm -rf dist"
   },
@@ -22,7 +20,6 @@
     "@types/react-dom": "^18.2.0",
     "eslint-config-custom": "workspace:*",
     "tsconfig": "workspace:*",
-    "tsup": "^5.10.1",
     "typescript": "^4.9.5"
   },
   "dependencies": {
