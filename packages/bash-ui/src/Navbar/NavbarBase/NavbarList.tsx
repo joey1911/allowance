@@ -29,7 +29,7 @@ const navbarListStyle = cva({
   base: {
     display: 'flex',
     justifyContent: 'center',
-    backgroundColor: 'white',
+    background: 'white',
     padding: 4,
     borderRadius: 6,
     listStyle: 'none',

@@ -31,7 +31,7 @@ const styles = css({
     boxShadow: '0 0 0 2px token(colors.violet.700)'
   },
   '&:hover': {
-    background: 'secondary'
+    background: 'background.accent.blue.subtlest'
   }
 });
 

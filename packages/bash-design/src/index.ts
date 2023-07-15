@@ -11,6 +11,10 @@ const definePreset = <T extends Config>(config: T) => config;
 
 const presetBash = definePreset({
   globalCss,
+  conditions: {
+    light: '[data-color-mode=light] &',
+    dark: '[data-color-mode=dark] &'
+  },
   theme: {
     textStyles,
     extend: {

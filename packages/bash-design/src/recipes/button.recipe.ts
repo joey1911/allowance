@@ -36,11 +36,11 @@ const buttonRecipe = defineRecipe({
     },
     color: {
       primary: {
-        backgroundColor: 'blue',
+        background: 'blue',
         color: 'white'
       },
       secondary: {
-        backgroundColor: 'gray',
+        background: 'gray',
         color: 'black'
       }
     },

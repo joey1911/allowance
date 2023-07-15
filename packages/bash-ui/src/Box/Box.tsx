@@ -27,8 +27,8 @@ const boxStyle = cva({
   variants: {
     type: {
       announcementBar: {
-        background: 'accent',
-        color: 'accentContrast',
+        background: 'background.accent.blue.subtlest',
+        color: 'text',
         padding: 'xs',
         fontSize: 'md',
         fontWeight: '500'

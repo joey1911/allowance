@@ -16,7 +16,7 @@ const styles = css({
     display: 'none'
   },
   '& input[type="checkbox"]:checked + div': {
-    background: 'inputBorder'
+    background: 'background.accent.blue.subtlest'
   },
   '& input[type="checkbox"]:checked + div > div': {
     left: '23px'
