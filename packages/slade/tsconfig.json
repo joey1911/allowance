@@ -1,7 +1,7 @@
 {
   "extends": "tsconfig/react-library.json",
   "include": ["."],
-  "exclude": ["dist", "build", "node_modules", "panda.config.ts"],
+  "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {
     "target": "es6"
   }

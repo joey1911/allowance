@@ -1,8 +1,10 @@
 type httpMethods = 'get' | 'put' | 'post' | 'delete'
 
-export class Client {
+export default class FetchClient {
   baseUrl: string;
+
   #applicationToken: string;
+
   #accessToken: string;
 
   constructor(baseUrl: string, applicationToken: string, accessToken: string) {
@@ -12,19 +14,21 @@ export class Client {
   }
 
   public async makeRequest(url: string, method: httpMethods) {
+    const userString = Buffer.from(`${this.#applicationToken}:${this.#accessToken}`).toString('base64');
     const response = await fetch(this.baseUrl + url, {
-      method: method,
+      method,
       headers: new Headers({
         'Content-Type': 'application/json',
-        'Authorization': 'Basic ' + Buffer.from(this.#applicationToken + ':' + this.#accessToken).toString('base64')
+        'Authorization': `Basic ${userString}`
       })
     });
 
-    if (response.status === 200) {
+    if (response.status >= 200 && response.status < 300) {
       return response.json();
-    }  else {
-      // Need to handle errors or other status codes
-      return response.statusText;
     }
+    // Errors in the 400 range are Allowance errors
+    // Errors in the 500 range are Marqeta errors
+    // Need to handle errors or other status codes
+    return response.statusText;
   }
-}
+};
