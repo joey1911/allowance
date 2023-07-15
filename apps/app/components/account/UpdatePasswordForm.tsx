@@ -53,7 +53,7 @@ export default function UpdatePasswordForm() {
         {errors.password?.message && (<span role="alert">{errors.password.message}</span>)}
       </InputGroup>
       <p>
-        <Button type="submit" size="large" color="primary">Submit</Button>
+        <Button type="submit" size="lg" variant="primary">Submit</Button>
       </p>
     </form>
   )

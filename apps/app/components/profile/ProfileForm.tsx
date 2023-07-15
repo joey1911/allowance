@@ -99,7 +99,7 @@ export default function ProfileForm({
       <input type="hidden" {...register('avatar_url')} value={profileData.avatar_url} />
 
       <p>
-        <Button type="submit" size="large" color="primary">Submit</Button>
+        <Button type="submit" size="lg" variant="primary">Submit</Button>
       </p>
     </form>
   )

@@ -67,7 +67,7 @@ export default function SignupForm({
         {errors.password?.message && (<span role="alert">{errors.password.message}</span>)}
       </InputGroup>
       <p>
-        <Button type="submit" size="large" color="primary">Signup</Button>
+        <Button type="submit" size="lg" variant="primary">Signup</Button>
       </p>
     </form>
   )

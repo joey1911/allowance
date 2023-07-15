@@ -1,6 +1,7 @@
 'use client'
 
 import { useTheme } from 'next-themes';
+import { Button } from '@allowance/bash-ui';
 
 export default function ThemeChanger() {
   const { theme, setTheme } = useTheme();
@@ -14,7 +15,7 @@ export default function ThemeChanger() {
 
   return (
     <div>
-      <button type="button" onClick={clickHandler}>Toggle Theme</button>
+      <Button variant="secondary" size="sm" onClick={clickHandler}>Toggle Theme</Button>
     </div>
   )
 }

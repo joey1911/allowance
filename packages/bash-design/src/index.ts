@@ -1,7 +1,6 @@
 import type { Config } from '@pandacss/types';
 import semanticColors from './tokens/colors.semantic';
 import spacing from './tokens/spacing';
-import buttonRecipe from "./recipes/button.recipe";
 import checkStyleInputRecipe from './recipes/checkStyleInput.recipe';
 import globalCss from './tokens/global';
 import textStyles from './tokens/text-styles';
@@ -24,7 +23,6 @@ const presetBash = definePreset({
         colors: semanticColors,
       },
       recipes: {
-        button: buttonRecipe,
         checkStyleInput: checkStyleInputRecipe
       },
     },

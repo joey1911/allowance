@@ -16,6 +16,6 @@ export default function SignOutButton() {
   };
 
   return (
-    <Button size="small" onClick={signoutHandler}>Sign out</Button>
+    <Button size="sm" variant="secondary" onClick={signoutHandler}>Sign out</Button>
   )
 };
