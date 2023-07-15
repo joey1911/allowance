@@ -1,18 +1,28 @@
-import React from 'react';
+import React, {
+  PropsWithChildren
+} from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@allowance/styled-system/jsx';
 import { cva } from '@allowance/styled-system/css';
 
-import type { RecipeVariantProps } from '@allowance/styled-system/css';
-
-type BaseProps = RecipeVariantProps<typeof buttonStyle> & {
+interface ButtonProps extends PropsWithChildren<React.ButtonHTMLAttributes<HTMLButtonElement>> {
+  /**
+   * Button Variant
+   */
+  variant: 'primary' | 'secondary' | 'warning',
+  /**
+   * Size of the Button
+   */
+  size: 'sm' | 'md' | 'lg',
   /**
    * Component content
    */
-  children: React.ReactNode
+  children: React.ReactNode,
+  /**
+   * Optional click handler
+   */
+  onClick?: () => void
 }
-
-type ButtonProps = BaseProps & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, keyof BaseProps>
 
 const buttonStyle = cva({
   base: {
@@ -64,8 +74,8 @@ const buttonStyle = cva({
 const StyledButton = styled('button', buttonStyle);
 
 const Button = ({
-  variant,
-  size,
+  variant = 'primary',
+  size = 'md',
   children,
   ...rest
 }: ButtonProps) => {
