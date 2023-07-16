@@ -1,7 +1,9 @@
+import React from 'react';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { css } from '@allowance/styled-system/css';
 
-interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
+export interface LabelProps extends React.LabelHTMLAttributes<HTMLLabelElement> {
   /**
    * Component content
    */
@@ -12,20 +14,14 @@ const styles = css({
   textStyle: 'label'
 });
 
-const Label = ({
+export default function Label({
   children,
   ...rest
-}: LabelProps) => {
+}: LabelProps) {
   return <label className={styles} {...rest}>{children}</label>
 };
 
-export default Label;
-
 Label.propTypes = {
-  /**
-   * Input that the label belongs to
-   */
-  htmlFor: PropTypes.string,
   /**
    * Component contents
    */

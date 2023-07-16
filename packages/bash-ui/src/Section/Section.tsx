@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { styled } from '@allowance/styled-system/jsx';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { cva } from '@allowance/styled-system/css';
 
 import type { RecipeVariantProps } from '@allowance/styled-system/css';
@@ -12,7 +14,7 @@ type BaseProps = RecipeVariantProps<typeof sectionStyle> & {
   children: React.ReactNode
 }
 
-type SectionProps = BaseProps & Omit<React.HTMLAttributes<HTMLElement>, keyof BaseProps>
+export type SectionProps = BaseProps & Omit<React.HTMLAttributes<HTMLElement>, keyof BaseProps>
 
 const sectionStyle = cva({
   base: {
@@ -35,19 +37,17 @@ const sectionStyle = cva({
 
 const StyledSection = styled('section', sectionStyle);
 
-const Section = ({
+export default function Section({
   type,
   children,
   ...rest
-}: SectionProps) => {
+}: SectionProps) {
   return (
     <StyledSection type={type} {...rest}>
       {children}
     </StyledSection>
   )
 };
-
-export default Section;
 
 Section.propTypes = {
   /**

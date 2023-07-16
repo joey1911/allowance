@@ -6,9 +6,10 @@ import {
   Trigger,
   type NavigationMenuTriggerProps
 } from '@radix-ui/react-navigation-menu';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { css } from '@allowance/styled-system/css';
 
-interface NavbarTriggerProps extends NavigationMenuTriggerProps {
+export interface NavbarTriggerProps extends NavigationMenuTriggerProps {
   /**
    * Component content
    */
@@ -35,18 +36,16 @@ const styles = css({
   }
 });
 
-const NavbarTrigger = ({
+export default function NavbarTrigger({
   children,
   ...rest
-}: NavbarTriggerProps) => {
+}: NavbarTriggerProps) {
   return (
     <Trigger className={styles} {...rest}>
       {children}
     </Trigger>
   )
 };
-
-export default NavbarTrigger;
 
 NavbarTrigger.propTypes = {
   /**

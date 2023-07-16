@@ -1,7 +1,8 @@
 import React from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { css } from '@allowance/styled-system/css';
 
-interface SwitchProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface SwitchProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string
 }
 
@@ -49,19 +50,18 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
   ({
     label,
     ...rest
-  }, forwardedRef) => {
-    return (
-      <div className={css({ display: 'flex' })}>
-        <label className={styles}>
-          <input type="checkbox" {...rest} ref={forwardedRef} />
-          <div className={trackStyle}>
-            <div className={knobStyle}></div>
-          </div>
-        </label>
-        <div>{label}</div>
-      </div>
-    )
-  }
+  }, forwardedRef) => (
+    <div className={css({ display: 'flex' })}>
+      <label className={styles}>
+        <input type="checkbox" {...rest} ref={forwardedRef} />
+        <div className={trackStyle}>
+          <div className={knobStyle} />
+        </div>
+      </label>
+      <div>{label}</div>
+    </div>
+  )
 );
+Switch.displayName = 'Switch'
 
 export default Switch;

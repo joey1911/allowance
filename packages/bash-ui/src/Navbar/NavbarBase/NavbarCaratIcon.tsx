@@ -1,4 +1,5 @@
 import { CaretDownIcon } from '@radix-ui/react-icons';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { css } from '@allowance/styled-system/css';
 
 const styles = css({
@@ -11,8 +12,6 @@ const styles = css({
   }
 });
 
-const NavbarCaratIcon = () => {
+export default function NavbarCaratIcon() {
   return <CaretDownIcon className={styles} />
 };
-
-export default NavbarCaratIcon;

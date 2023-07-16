@@ -36,7 +36,7 @@ type BorderComponent = <C extends React.ElementType = 'div'>(
   props: BorderProps<C>
 ) => React.ReactElement | null
 
-export const Border: BorderComponent = React.forwardRef(
+const Border: BorderComponent = React.forwardRef(
   <C extends React.ElementType = 'div'>(
     {
       as,
@@ -59,3 +59,6 @@ export const Border: BorderComponent = React.forwardRef(
     )
   }
 );
+
+
+export default Border;

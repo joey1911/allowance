@@ -6,9 +6,10 @@ import {
   Link,
   type NavigationMenuLinkProps
 } from '@radix-ui/react-navigation-menu';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { css } from '@allowance/styled-system/css';
 
-interface NavbarLinkProps extends NavigationMenuLinkProps {
+export interface NavbarLinkProps extends NavigationMenuLinkProps {
   /**
    * Component content
    */
@@ -32,18 +33,16 @@ const styles = css({
   }
 });
 
-const NavbarLink = ({
+export default function NavbarLink({
   children,
   ...rest
-}: NavbarLinkProps) => {
+}: NavbarLinkProps) {
   return (
     <Link className={styles} {...rest}>
       {children}
     </Link>
   )
 };
-
-export default NavbarLink;
 
 NavbarLink.propTypes = {
   /**

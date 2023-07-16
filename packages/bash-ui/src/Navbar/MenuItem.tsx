@@ -5,16 +5,16 @@ import {
   NavbarLink
 } from './NavbarBase';
 
-interface MenuItemProps {
+export interface MenuItemProps {
   /**
    * Next/Link component
    */
   linkItem: React.ReactNode
 }
 
-const MenuItem = ({
+export default function MenuItem({
   linkItem
-}: MenuItemProps) => {
+}: MenuItemProps) {
   return (
     <NavbarItem>
       <NavbarLink asChild>
@@ -23,8 +23,6 @@ const MenuItem = ({
     </NavbarItem>
   )
 };
-
-export default MenuItem;
 
 MenuItem.propTypes = {
   /**

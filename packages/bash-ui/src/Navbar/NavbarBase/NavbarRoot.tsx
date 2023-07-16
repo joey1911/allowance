@@ -6,7 +6,9 @@ import {
   Root,
   type NavigationMenuProps
 } from '@radix-ui/react-navigation-menu';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { styled } from '@allowance/styled-system/jsx';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import {
   cva,
   type RecipeVariantProps
@@ -23,7 +25,7 @@ type BaseProps = RecipeVariantProps<typeof navbarRootStyle> & {
   children: React.ReactNode
 }
 
-type NavbarRootProps = BaseProps & Omit<NavigationMenuProps, keyof BaseProps>
+export type NavbarRootProps = BaseProps & Omit<NavigationMenuProps, keyof BaseProps>
 
 const navbarRootStyle = cva({
   base: {
@@ -48,19 +50,17 @@ const navbarRootStyle = cva({
 
 const StyledNavbarRoot = styled(Root, navbarRootStyle);
 
-const NavbarRoot = ({
+export default function NavbarRoot({
   menuPlacement = 'right',
   children,
   ...rest
-}: NavbarRootProps) => {
+}: NavbarRootProps) {
   return (
     <StyledNavbarRoot menuPlacement={menuPlacement} {...rest}>
       {children}
     </StyledNavbarRoot>
   )
 };
-
-export default NavbarRoot;
 
 NavbarRoot.propTypes = {
   /**
@@ -74,4 +74,8 @@ NavbarRoot.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node]
   ).isRequired
+}
+
+NavbarRoot.defaultProps = {
+  menuPlacement: 'right'
 }

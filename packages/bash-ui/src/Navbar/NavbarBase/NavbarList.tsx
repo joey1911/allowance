@@ -6,7 +6,9 @@ import {
   List,
   type NavigationMenuListProps
 } from '@radix-ui/react-navigation-menu';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { styled } from '@allowance/styled-system/jsx';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import {
   cva,
   type RecipeVariantProps
@@ -23,7 +25,7 @@ type BaseProps = RecipeVariantProps<typeof navbarListStyle> & {
   children: React.ReactNode
 }
 
-type NavbarListProps = BaseProps & Omit<NavigationMenuListProps, keyof BaseProps>
+export type NavbarListProps = BaseProps & Omit<NavigationMenuListProps, keyof BaseProps>
 
 const navbarListStyle = cva({
   base: {
@@ -49,19 +51,17 @@ const navbarListStyle = cva({
 
 const StyledNavbarList = styled(List, navbarListStyle);
 
-const NavbarList = ({
+export default function NavbarList({
   menuOrientation = 'horizontal',
   children,
   ...rest
-}: NavbarListProps) => {
+}: NavbarListProps) {
   return (
     <StyledNavbarList menuOrientation={menuOrientation} {...rest}>
       {children}
     </StyledNavbarList>
   )
 };
-
-export default NavbarList;
 
 NavbarList.propTypes = {
   /**
@@ -75,4 +75,8 @@ NavbarList.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node]
   ).isRequired
+}
+
+NavbarList.defaultProps = {
+  menuOrientation: 'horizontal'
 }

@@ -7,7 +7,7 @@ import {
   NavbarViewport
 } from './NavbarBase';
 
-interface NavbarProps {
+export interface NavbarProps {
   /**
    * Set of menu items
    */
@@ -22,11 +22,11 @@ interface NavbarProps {
   menuAlignment?: 'horizontal' | 'vertical'
 }
 
-const Navbar = ({
+export default function Navbar({
   menuItems,
-  menuPlacement,
-  menuAlignment
-}: NavbarProps) => {
+  menuPlacement = 'left',
+  menuAlignment = 'horizontal'
+}: NavbarProps) {
   return (
     <NavbarRoot menuPlacement={menuPlacement} orientation={menuAlignment}>
       <NavbarList menuOrientation={menuAlignment}>
@@ -37,8 +37,6 @@ const Navbar = ({
     </NavbarRoot>
   )
 };
-
-export default Navbar;
 
 Navbar.propTypes = {
   /**

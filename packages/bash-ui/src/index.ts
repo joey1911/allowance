@@ -1,19 +1,14 @@
-export { Box } from './Box';
-export { Section } from './Section';
-export { Container } from './Container';
-export { Text } from './PolymorphicComponents/Text';
+export * from './Box';
+export * from './Section';
+export * from './Container';
 
-export {
-  Navbar,
-  MenuItem,
-  MenuItemWithContent
-} from './Navbar';
+export * from './Navbar';
 
-export { Fieldset } from './Fieldset';
-export { Label } from './Label';
-export { Button } from './Button';
-export { Checkbox } from './Checkbox';
-export { Radio } from './Radio';
-export { Input } from './Input';
-export { InputGroup } from './InputGroup';
-export { Switch } from './Switch';
+export * from './Fieldset';
+export * from './Label';
+export * from './Button';
+export * from './Checkbox';
+export * from './Radio';
+export * from './Input';
+export * from './InputGroup';
+export * from './Switch';

@@ -1,10 +1,9 @@
-'use client'
-
 import React from 'react';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { styled } from '@allowance/styled-system/jsx';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { cva } from '@allowance/styled-system/css';
-
 import type { RecipeVariantProps } from '@allowance/styled-system/css';
 
 type BaseProps = RecipeVariantProps<typeof boxStyle> & {
@@ -18,7 +17,7 @@ type BaseProps = RecipeVariantProps<typeof boxStyle> & {
   children: React.ReactNode
 }
 
-type BoxProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, keyof BaseProps>
+export type BoxProps = BaseProps & Omit<React.HTMLAttributes<HTMLDivElement>, keyof BaseProps>
 
 const boxStyle = cva({
   base: {
@@ -39,20 +38,18 @@ const boxStyle = cva({
 
 const StyledBox = styled('div', boxStyle);
 
-const Box = ({
+export default function Box({
   type,
   className,
   children,
   ...rest
-}: BoxProps) => {
+}: BoxProps) {
   return (
     <StyledBox type={type} className={className} {...rest}>
       {children}
     </StyledBox>
   )
 };
-
-export default Box;
 
 Box.propTypes = {
   /**
@@ -66,4 +63,8 @@ Box.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node]
   ).isRequired
+}
+
+Box.defaultProps = {
+  className: ''
 }

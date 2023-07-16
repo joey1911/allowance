@@ -1,19 +1,12 @@
-import React, {
-  PropsWithChildren
-} from 'react';
+import React, { MouseEventHandler } from 'react';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { styled } from '@allowance/styled-system/jsx';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { cva } from '@allowance/styled-system/css';
+import type { RecipeVariantProps } from '@allowance/styled-system/css';
 
-interface ButtonProps extends PropsWithChildren<React.ButtonHTMLAttributes<HTMLButtonElement>> {
-  /**
-   * Button Variant
-   */
-  variant: 'primary' | 'secondary' | 'warning',
-  /**
-   * Size of the Button
-   */
-  size: 'sm' | 'md' | 'lg',
+type BaseProps = RecipeVariantProps<typeof buttonStyle> & {
   /**
    * Component content
    */
@@ -21,8 +14,10 @@ interface ButtonProps extends PropsWithChildren<React.ButtonHTMLAttributes<HTMLB
   /**
    * Optional click handler
    */
-  onClick?: () => void
+  onClick?: MouseEventHandler<HTMLButtonElement>
 }
+
+export type ButtonProps = BaseProps & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, keyof BaseProps>
 
 const buttonStyle = cva({
   base: {
@@ -73,20 +68,19 @@ const buttonStyle = cva({
 
 const StyledButton = styled('button', buttonStyle);
 
-const Button = ({
+export default function Button({
   variant = 'primary',
   size = 'md',
   children,
+  onClick = () => {},
   ...rest
-}: ButtonProps) => {
+}: ButtonProps) {
   return (
-    <StyledButton variant={variant} size={size} {...rest}>
+    <StyledButton type="button" variant={variant} size={size} onClick={onClick} {...rest}>
       {children}
     </StyledButton>
   )
 };
-
-export default Button;
 
 Button.propTypes = {
   /**
@@ -99,5 +93,5 @@ Button.propTypes = {
   /**
    * Optional click handler
    */
-  onClick: PropTypes.func
+  onClick: PropTypes.func // eslint-disable-line react/require-default-props
 }

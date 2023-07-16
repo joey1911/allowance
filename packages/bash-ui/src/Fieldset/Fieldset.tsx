@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { css } from '@allowance/styled-system/css';
 
-interface FieldsetProps extends React.FieldsetHTMLAttributes<HTMLFieldSetElement> {
+export interface FieldsetProps extends React.FieldsetHTMLAttributes<HTMLFieldSetElement> {
   /**
    * Legend content
    */
@@ -19,11 +20,11 @@ const styles = css({
   }
 });
 
-const Fieldset = ({
+export default function Fieldset({
   legend,
   children,
   ...rest
-}: FieldsetProps) => {
+}: FieldsetProps) {
   return (
     <fieldset className={styles} {...rest}>
       <legend>{legend}</legend>
@@ -32,13 +33,11 @@ const Fieldset = ({
   )
 };
 
-export default Fieldset;
-
 Fieldset.propTypes = {
   /**
    * Legend content
    */
-  legend: PropTypes.string,
+  legend: PropTypes.string.isRequired,
   /**
    * Component content
    */

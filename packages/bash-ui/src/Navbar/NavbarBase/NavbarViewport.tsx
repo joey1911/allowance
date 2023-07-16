@@ -1,6 +1,7 @@
 'use client'
 
 import { Viewport } from '@radix-ui/react-navigation-menu';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { css } from '@allowance/styled-system/css';
 
 const viewportPositionStyles = css({
@@ -31,12 +32,10 @@ const viewportStyles = css({
   }
 });
 
-const NavbarViewport = () => {
+export default function NavbarViewport() {
   return (
     <div className={viewportPositionStyles}>
       <Viewport className={viewportStyles} />
     </div>
   )
 };
-
-export default NavbarViewport;

@@ -6,9 +6,10 @@ import {
   Content,
   type NavigationMenuContentProps
 } from '@radix-ui/react-navigation-menu';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { css } from '@allowance/styled-system/css';
 
-interface NavbarContentProps extends NavigationMenuContentProps {
+export interface NavbarContentProps extends NavigationMenuContentProps {
   /**
    * Component content
    */
@@ -39,18 +40,16 @@ const styles = css({
   }
 });
 
-const NavbarContent = ({
+export default function NavbarContent({
   children,
   ...rest
-}: NavbarContentProps) => {
+}: NavbarContentProps) {
   return (
     <Content className={styles} {...rest}>
       {children}
     </Content>
   )
 };
-
-export default NavbarContent;
 
 NavbarContent.propTypes = {
   /**

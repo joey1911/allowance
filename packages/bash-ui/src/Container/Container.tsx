@@ -1,26 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { container } from '@allowance/styled-system/patterns';
 
-interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Component content
    */
   children: React.ReactNode
 }
 
-const Container = ({
+export default function Container({
   children,
   ...rest
-}: ContainerProps) => {
+}: ContainerProps) {
   return (
     <div className={container()} {...rest}>
       {children}
     </div>
   )
 };
-
-export default Container;
 
 Container.propTypes = {
   /**

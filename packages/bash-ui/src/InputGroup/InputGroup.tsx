@@ -1,26 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { flex } from '@allowance/styled-system/patterns';
 
-interface InputGroupProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface InputGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Component content
    */
   children: React.ReactNode
 }
 
-const InputGroup = ({
+export default function InputGroup({
   children,
   ...rest
-}: InputGroupProps) => {
+}: InputGroupProps) {
   return (
     <div className={flex({ direction: 'column', gap: '0.5' })} {...rest}>
       {children}
     </div>
   )
 };
-
-export default InputGroup;
 
 InputGroup.propTypes = {
   /**

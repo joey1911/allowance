@@ -1,6 +1,7 @@
 'use client'
 
 import { Indicator } from '@radix-ui/react-navigation-menu';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import { css } from '@allowance/styled-system/css';
 
 const indicatorStyles = css({
@@ -26,12 +27,10 @@ const indicatorArrowStyles = css({
   borderTopLeftRadius: 2
 });
 
-const NavbarIndicator = () => {
+export default function NavbarIndicator() {
   return (
     <Indicator className={indicatorStyles}>
-      <div className={indicatorArrowStyles}></div>
+      <div className={indicatorArrowStyles} />
     </Indicator>
   );
 };
-
-export default NavbarIndicator;

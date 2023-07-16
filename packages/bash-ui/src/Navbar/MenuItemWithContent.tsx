@@ -7,7 +7,7 @@ import {
   NavbarContent
 } from './NavbarBase';
 
-interface MenuItemWithContentProps {
+export interface MenuItemWithContentProps {
   /**
    * Menu item title
    */
@@ -18,10 +18,10 @@ interface MenuItemWithContentProps {
   content: React.ReactNode
 }
 
-const MenuItemWithContent = ({
+export default function MenuItemWithContent({
   menuItemTitle,
   content
-}: MenuItemWithContentProps) => {
+}: MenuItemWithContentProps) {
   return (
     <NavbarItem>
       <NavbarTrigger>
@@ -33,8 +33,6 @@ const MenuItemWithContent = ({
     </NavbarItem>
   )
 };
-
-export default MenuItemWithContent;
 
 MenuItemWithContent.propTypes = {
   /**
