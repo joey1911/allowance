@@ -66,7 +66,7 @@ NavbarRoot.propTypes = {
   /**
    * Navbar page placement
    */
-  menuPlacement: PropTypes.oneOf(['left', 'right']),
+  menuPlacement: PropTypes.oneOf(['left', 'right']).isRequired,
   /**
    * Component content
    */
@@ -74,8 +74,4 @@ NavbarRoot.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node]
   ).isRequired
-}
-
-NavbarRoot.defaultProps = {
-  menuPlacement: 'right'
 }
