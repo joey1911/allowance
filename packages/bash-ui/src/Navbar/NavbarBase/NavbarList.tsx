@@ -67,7 +67,7 @@ NavbarList.propTypes = {
   /**
    * Horizontal or vertical navbar
    */
-  menuOrientation: PropTypes.oneOf(['horizontal', 'vertical']),
+  menuOrientation: PropTypes.oneOf(['horizontal', 'vertical']), // eslint-disable-line react/require-default-props
   /**
    * Component content
    */
@@ -75,8 +75,4 @@ NavbarList.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node]
   ).isRequired
-}
-
-NavbarList.defaultProps = {
-  menuOrientation: 'horizontal'
 }
