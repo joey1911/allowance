@@ -16,7 +16,7 @@ export default async function signup(
         data: {
           onboardStep: 0
         },
-        emailRedirectTo: `${process.env['NEXT_PUBLIC_API_URL']}/api/auth/callback`
+        emailRedirectTo: `${process.env['NEXT_PUBLIC_APP_URL']}/api/auth/callback`
       }
     });
   } catch (error) {

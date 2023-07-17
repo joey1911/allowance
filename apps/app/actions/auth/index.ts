@@ -51,3 +51,22 @@ export async function updatePassword(password: string) {
 type UpdatePasswordResponse = Awaited<ReturnType<typeof updatePassword>>
 export type UpdatePasswordResponseSuccess = UpdatePasswordResponse['data']
 export type UpdatePasswordResponseError = UpdatePasswordResponse['error']
+
+export async function forgotPassword(email: string) {
+  const supabase = createClientComponentClient<Database>();
+
+  try {
+    return await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: `${process.env.NEXT_PUBLIC_APP_URL}/api/auth/callback?next=/dashboard/account`
+    });
+  } catch (error) {
+    return error;
+  } finally {
+    // Log password reset attempt
+    // Email user that someone attempted to update their password
+  }
+}
+
+type ForgotPasswordResponse = Awaited<ReturnType<typeof forgotPassword>>
+export type ForgotPasswordResponseSuccess = ForgotPasswordResponse['data']
+export type ForgotPasswordResponseError = ForgotPasswordResponse['error']
