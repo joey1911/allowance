@@ -13,6 +13,9 @@ export default async function signup(
       email,
       password,
       options: {
+        data: {
+          onboardStep: 0
+        },
         emailRedirectTo: `${process.env['NEXT_PUBLIC_API_URL']}/api/auth/callback`
       }
     });

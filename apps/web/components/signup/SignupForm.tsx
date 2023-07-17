@@ -14,9 +14,9 @@ import {
 import { ObservablePrimitiveChildFns } from '@legendapp/state';
 import signup, {
   type SignupResponseError
-} from '../../actions/signup';
+} from '@/actions/signup'; // eslint-disable-line import/no-unresolved
 
-import type { SignupDataBasic } from '../../types/user';
+import type { SignupDataBasic } from '@/types/user';
 
 export default function SignupForm({
   signupState
