@@ -46,13 +46,13 @@ export default class FetchClient {
     }
 
     const response = await fetch(this.baseUrl + url, requestConfig);
+    const data = await response.json();
 
-    if (response.status >= 200 && response.status < 300) {
-      return response.json();
+    if (response.ok) {
+      // response.ok is true if status between 200 and 299
+      return data;
     }
-    // Errors in the 400 range are Allowance errors
-    // Errors in the 500 range are Marqeta errors
-    // Need to handle errors or other status codes
-    return response.statusText;
+
+    throw new Error(response.statusText);
   }
 };

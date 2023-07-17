@@ -5,7 +5,8 @@ type SladeObject = {
   HttpClient: typeof FetchClient,
   createUser: () => any,
   listUsers: () => any,
-  getUser: () => any
+  getUser: () => any,
+  createJoey: () => any
 }
 
 /*
@@ -18,8 +19,6 @@ export default function createSlade(
   applicationToken: string,
   accessToken: string
 ) {
-  Slade.HttpClient = new FetchClient(baseUrl, applicationToken, accessToken);
-
   function Slade(
     this: SladeObject,
     config: Record<string, unknown> = {}
@@ -28,6 +27,8 @@ export default function createSlade(
       return new (Slade as any)(config);
     }
   };
+
+  Slade.HttpClient = new FetchClient(baseUrl, applicationToken, accessToken);
 
   Slade.createUser = async function createUser(userData: MarqetaUser) {
     try {
@@ -52,6 +53,14 @@ export default function createSlade(
       return error;
     }
   };
+
+  Slade.updateUser = async function updateUser(token: string, userData: MarqetaUser) {
+    try {
+      return await this.HttpClient.makeRequest(`users/${token}`, 'put', userData);
+    } catch (error) {
+      return error;
+    }
+  }
 
   return Slade;
 };
