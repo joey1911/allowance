@@ -12,14 +12,13 @@ export default async function Page() {
     process.env['NEXT_MARQETA_APPLICATION_TOKEN'],
     process.env['NEXT_MARQETA_ADMIN_ACCESS_TOKEN']
   );
-  const results = await sladeClient.getUsers();
+  const results = await sladeClient.listUsers();
   console.log(results);
   */
 
   return (
     <Section type="body">
       <Container>
-        <p>Testing Vercel Deploy</p>
         <LoginForm />
       </Container>
     </Section>
