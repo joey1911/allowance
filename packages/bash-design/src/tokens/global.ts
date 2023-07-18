@@ -1,7 +1,6 @@
 const globalCss = {
   'html, body': {
     color: 'neutral.900',
-    lineHeight: '1.5',
     textStyle: 'base'
   },
   'h1': {
