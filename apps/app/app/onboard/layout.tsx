@@ -38,7 +38,7 @@ export default async function OnboardLayout({
       </header>
       <Section>
         <Container>
-        {children}
+          {children}
         </Container>
       </Section>
     </>

@@ -1,13 +1,7 @@
 import FetchClient from './net/FetchClient';
 import type { MarqetaUser } from './types';
 
-type SladeObject = {
-  HttpClient: typeof FetchClient,
-  createUser: () => any,
-  listUsers: () => any,
-  getUser: () => any,
-  createJoey: () => any
-}
+type SladeObject = {}
 
 /*
  * TODO: Need to add input validation and cleansing
@@ -38,6 +32,43 @@ export default function createSlade(
     }
   };
 
+  Slade.getUser = async function getUser(userToken: string) {
+    try {
+      return await this.HttpClient.makeRequest(`users/${userToken}`, 'get');
+    } catch (error) {
+      return error;
+    }
+  };
+
+  Slade.updateUser = async function updateUser(userToken: string, userData: MarqetaUser) {
+    try {
+      return await this.HttpClient.makeRequest(`users/${userToken}`, 'put', userData);
+    } catch (error) {
+      return error;
+    }
+  };
+
+  /**
+   * Get user's SSN
+   * @param token string
+   * @returns Promise
+   */
+  Slade.getIdentificationNumber = async function getIdentificationNumber(userToken: string) {
+    try {
+      return await this.HttpClient.makeRequest(`users/${userToken}/ssn`, 'get');
+    } catch (error) {
+      return error;
+    }
+  };
+
+  Slade.listChildAccounts = async function listChildAccounts(parentToken: string) {
+    try {
+      return await this.HttpClient.makeRequest(`users/${parentToken}/children`, 'get');
+    } catch (error) {
+      return error;
+    }
+  };
+
   Slade.listUsers = async function listUsers() {
     try {
       return await this.HttpClient.makeRequest('users', 'get');
@@ -46,21 +77,39 @@ export default function createSlade(
     }
   };
 
-  Slade.getUser = async function getUser(token: string) {
+  /**
+   * Get a single-use client access token.
+   * Required to access virtual card's sensitive data using marqeta.js
+   * @param cardToken string
+   * @returns JSON Client Access Token response
+   */
+  Slade.createClientAccessToken = async function createClientAccessToken(cardToken: string) {
     try {
-      return await this.HttpClient.makeRequest(`users/${token}`, 'get');
+      return await this.HttpClient.makeRequest('users/auth/clientaccesstoken', 'post', {
+        card_token: cardToken
+      });
     } catch (error) {
       return error;
     }
   };
 
-  Slade.updateUser = async function updateUser(token: string, userData: MarqetaUser) {
+  Slade.performKycVerification = async function performKycVerification(userToken: string) {
     try {
-      return await this.HttpClient.makeRequest(`users/${token}`, 'put', userData);
+      return await this.HttpClient.makeRequest('kyc', 'post', {
+        user_token: userToken
+      });
     } catch (error) {
       return error;
     }
-  }
+  };
+
+  Slade.getKycVerificationResults = async function getKycVerificationResults(userToken: string) {
+    try {
+      return await this.HttpClient.makeRequest(`kyc/user/${userToken}`, 'get');
+    } catch (error) {
+      return error;
+    }
+  };
 
   return Slade;
 };
