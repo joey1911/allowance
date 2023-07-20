@@ -3,7 +3,7 @@ import {
   Container
 } from '@allowance/bash-ui';
 // import createSlade from '@allowance/slade';
-import LoginForm from '@/components/LoginForm'; // eslint-disable-line import/no-unresolved
+import LoginForm from '@/components/LoginForm';
 
 export default async function Page() {
   /*

@@ -15,7 +15,7 @@ import {
   OnboardStepTwo,
   OnboardStepThree,
   OnboardStepFour
-} from '@/components/onboard'; // eslint-disable-line import/no-unresolved
+} from '@/components/onboard';
 
 // TODO: Would this be better off as a state machine? For now, KISS
 const OnboardContainer = observer(({

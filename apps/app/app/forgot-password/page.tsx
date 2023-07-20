@@ -2,7 +2,7 @@ import {
   Section,
   Container
 } from '@allowance/bash-ui';
-import ForgotPasswordForm from '@/components/ForgotPasswordForm'; // eslint-disable-line import/no-unresolved
+import ForgotPasswordForm from '@/components/ForgotPasswordForm';
 
 export default function Page() {
   return (

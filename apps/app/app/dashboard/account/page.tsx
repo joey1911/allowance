@@ -1,4 +1,4 @@
-import UpdatePasswordForm from '@/components/account/UpdatePasswordForm'; // eslint-disable-line import/no-unresolved
+import UpdatePasswordForm from '@/components/account/UpdatePasswordForm';
 
 export default function Page() {
   return (

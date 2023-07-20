@@ -13,8 +13,8 @@ import {
   Button
 } from '@allowance/bash-ui';
 import type { User } from '@supabase/auth-helpers-nextjs';
-import updateProfile from '@/actions/profile/updateProfile'; // eslint-disable-line import/no-unresolved
-import type { AccountProfile } from '@/types/account';
+import updateProfile from '@/actions/profile/updateProfile';
+import type { AccountProfile } from '@/types';
 import AvatarUpload from './AvatarUpload';
 
 export default function ProfileForm({

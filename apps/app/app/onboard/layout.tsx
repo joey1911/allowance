@@ -10,8 +10,8 @@ import { flex } from '@allowance/styled-system/patterns';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { css } from '@allowance/styled-system/css';
 import type { Session } from '@supabase/auth-helpers-nextjs';
-import SignOutButton from '@/components/SignOutButton'; // eslint-disable-line import/no-unresolved
-import getSession from '@/actions/getSession'; // eslint-disable-line import/no-unresolved
+import SignOutButton from '@/components/SignOutButton';
+import getSession from '@/actions/getSession';
 
 export default async function OnboardLayout({
   children

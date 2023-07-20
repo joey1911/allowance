@@ -7,7 +7,7 @@ import React, {
 import Image from 'next/image';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import type { Database } from '@/types/supabase';
-import type { AccountProfile } from '@/types/account';
+import type { AccountProfile } from '@/types';
 
 export default function AvatarUpload({
   uid,

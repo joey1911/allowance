@@ -13,7 +13,7 @@ import {
   InputGroup,
   Button
 } from '@allowance/bash-ui';
-import updateProfile from '@/actions/profile/updateProfile'; // eslint-disable-line import/no-unresolved
+import updateProfile from '@/actions/profile/updateProfile';
 import type { VerificationInformation } from '@/types';
 
 export default function VerifyIdentityForm({

@@ -10,7 +10,7 @@ import {
   InputGroup,
   Button
 } from '@allowance/bash-ui';
-import { updatePassword } from '@/actions/auth'; // eslint-disable-line import/no-unresolved
+import { updatePassword } from '@/actions/auth';
 import type { UpdatePasswordResponseError } from '@/actions/auth';
 
 interface UpdatePasswordInput {

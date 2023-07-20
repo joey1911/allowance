@@ -1,7 +1,6 @@
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
-
 import type { Database } from '@/types/supabase';
-import type { AccountProfile } from '@/types/account';
+import type { AccountProfile } from '@/types';
 
 export default async function updateProfile(
   profileData: AccountProfile,

@@ -3,9 +3,9 @@ import React from 'react';
 import { Container, Box } from '@allowance/bash-ui';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { flex } from '@allowance/styled-system/patterns';
-import MainNavbar from '@/components/MainNavbar'; // eslint-disable-line import/no-unresolved
-import ThemeChanger from '@/components/ThemeChanger'; // eslint-disable-line import/no-unresolved
-import { Providers } from '../providers/theme';
+import MainNavbar from '@/components/MainNavbar';
+import ThemeChanger from '@/components/ThemeChanger';
+import { Providers } from '@/providers/theme';
 
 export default function RootLayout({
   children,

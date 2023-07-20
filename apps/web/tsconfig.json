@@ -5,9 +5,11 @@
     "target": "es6",
     "baseUrl": ".",
     "paths": {
+      "@/types": ["types"],
       "@/types/*": ["types/*"],
       "@/actions/*": ["actions/*"],
-      "@/components/*": ["components/*"]
+      "@/components/*": ["components/*"],
+      "@/providers/*": ["providers/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

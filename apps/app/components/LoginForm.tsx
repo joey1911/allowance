@@ -11,7 +11,7 @@ import {
   InputGroup,
   Button
 } from '@allowance/bash-ui';
-import { loginWithPassword } from '@/actions/auth'; // eslint-disable-line import/no-unresolved
+import { loginWithPassword } from '@/actions/auth';
 import type { LoginResponseError } from '@/actions/auth';
 
 interface LoginInput {

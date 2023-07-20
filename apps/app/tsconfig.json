@@ -6,8 +6,11 @@
     "baseUrl": ".",
     "paths": {
       "@/types/*": ["types/*"],
+      "@/types": ["types"],
       "@/actions/*": ["actions/*"],
-      "@/components/*": ["components/*"]
+      "@/actions": ["actions"],
+      "@/components/*": ["components/*"],
+      "@/components": ["components"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

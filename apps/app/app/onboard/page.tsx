@@ -1,5 +1,5 @@
-import OnboardContainer from '@/components/onboard/OnboardContainer'; // eslint-disable-line import/no-unresolved
-import getUser from '@/actions/user/getUser'; // eslint-disable-line import/no-unresolved
+import OnboardContainer from '@/components/onboard/OnboardContainer';
+import getUser from '@/actions/user/getUser';
 
 export default async function Page() {
   const loggedInUser = await getUser();

@@ -1,4 +1,4 @@
-import ProfileFormContainer from '@/components/profile/ProfileFormContainer'; // eslint-disable-line import/no-unresolved
+import ProfileFormContainer from '@/components/profile/ProfileFormContainer';
 
 export default function Page() {
   return (

@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation';
-import getUser from '@/actions/user/getUser'; // eslint-disable-line import/no-unresolved
+import getUser from '@/actions/user/getUser';
 
 export default async function Page() {
   const user = await getUser();

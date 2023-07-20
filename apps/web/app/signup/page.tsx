@@ -5,7 +5,7 @@ import {
 } from '@allowance/bash-ui';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { flex } from '@allowance/styled-system/patterns';
-import SignupContainer from '@/components/signup/SignupContainer'; // eslint-disable-line import/no-unresolved
+import SignupContainer from '@/components/signup/SignupContainer';
 
 export default function Page() {
   return (

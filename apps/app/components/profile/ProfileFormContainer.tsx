@@ -1,9 +1,9 @@
 import type { Session } from '@supabase/auth-helpers-nextjs';
-import getSession from '@/actions/getSession'; // eslint-disable-line import/no-unresolved
+import getSession from '@/actions/getSession';
 import getProfile, {
   type GetProfileResponseSuccess,
   type GetProfileResponseError
-} from '@/actions/profile/getProfile'; // eslint-disable-line import/no-unresolved
+} from '@/actions/profile/getProfile';
 import ProfileForm from './ProfileForm';
 
 const ProfileFormContainer = async () => {

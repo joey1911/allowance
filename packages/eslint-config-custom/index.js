@@ -11,7 +11,8 @@ module.exports = {
         "extensions": [".js", ".jsx", ".tsx"]
       }
     ],
-    "import/extensions": "off"
+    "import/extensions": "off",
+    "import/no-unresolved": "off"
   },
   parserOptions: {
     babelOptions: {

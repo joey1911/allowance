@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import { Button } from '@allowance/bash-ui';
-import { signOut } from '@/actions/auth'; // eslint-disable-line import/no-unresolved
+import { signOut } from '@/actions/auth';
 
 export default function SignOutButton() {
   const router = useRouter();

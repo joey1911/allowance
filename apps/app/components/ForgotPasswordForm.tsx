@@ -10,7 +10,7 @@ import {
   InputGroup,
   Button
 } from '@allowance/bash-ui';
-import { forgotPassword } from '@/actions/auth'; // eslint-disable-line import/no-unresolved
+import { forgotPassword } from '@/actions/auth';
 import type {
   ForgotPasswordResponseSuccess,
   ForgotPasswordResponseError
