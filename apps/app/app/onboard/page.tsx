@@ -1,4 +1,4 @@
-import { OnboardContainer } from '@/components/onboard'; // eslint-disable-line import/no-unresolved
+import OnboardContainer from '@/components/onboard/OnboardContainer'; // eslint-disable-line import/no-unresolved
 import getUser from '@/actions/user/getUser'; // eslint-disable-line import/no-unresolved
 
 export default async function Page() {
