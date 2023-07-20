@@ -6,6 +6,6 @@ export default async function Page() {
   const currentOnboardingStep = loggedInUser.user_metadata.onboardStep;
 
   return (
-    <OnboardContainer currentStep={currentOnboardingStep} />
+    <OnboardContainer currentStep={currentOnboardingStep} user={loggedInUser} />
   )
 };

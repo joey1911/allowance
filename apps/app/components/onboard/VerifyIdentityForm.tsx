@@ -5,24 +5,64 @@ import {
   useForm,
   SubmitHandler
 } from 'react-hook-form';
+import type { User } from '@supabase/auth-helpers-nextjs';
+import type { ObservableObject } from '@legendapp/state';
 import {
   Label,
   Input,
   InputGroup,
   Button
 } from '@allowance/bash-ui';
-import type { VerificationInformation } from '@/types/account';
+import updateProfile from '@/actions/profile/updateProfile'; // eslint-disable-line import/no-unresolved
+import type { VerificationInformation } from '@/types';
 
-export default function VerifyIdentityForm() {
+export default function VerifyIdentityForm({
+  onboardState
+}: {
+  onboardState: ObservableObject<{
+    step: number,
+    user: User
+  }>
+}) {
   const {
     register,
     handleSubmit,
     formState: { errors }
   } = useForm<VerificationInformation>();
 
-  const onSubmit: SubmitHandler<VerificationInformation> = (data) => {
-    console.log(data);
+  const { id: userId } = onboardState.user.get();
+
+  /* eslint-disable camelcase */
+  const onSubmit: SubmitHandler<VerificationInformation> = async ({
+    first_name,
+    last_name,
+    address1,
+    address2,
+    city,
+    state,
+    postal_code,
+    birth_date
+  }) => {
+    /*
+    await updateProfile({
+      first_name,
+      last_name,
+      address: address1,
+      address2,
+      city,
+      state,
+      zip_code: postal_code,
+      dob: birth_date,
+      avatar_url: null
+    }, userId);
+    */
+
+    // Need to save first name, last name in Profile
+    // Add user in Marqeta
+    // KYC verification
+    onboardState.step.set(2);
   };
+  /* eslint-disable camelcase */
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

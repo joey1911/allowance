@@ -1,10 +1,14 @@
 'use client'
 
-import React from 'react';
+import React, {
+  useRef
+} from 'react';
 import {
   observer,
-  useObservable
+  useObservable,
+  Switch
 } from '@legendapp/state/react';
+import type { User } from '@supabase/auth-helpers-nextjs';
 import {
   OnboardStepWelcome,
   OnboardStepOne,
@@ -16,32 +20,35 @@ import {
 // TODO: Would this be better off as a state machine? For now, KISS
 const OnboardContainer = observer(({
   currentStep,
+  user,
   ...rest
 }: {
-  currentStep: number
+  currentStep: number,
+  user: User
 }) => {
+  const renderCount = ++useRef(0).current; // eslint-disable-line
   const onboardState = useObservable({
-    step: currentStep
+    step: currentStep,
+    user,
+    marqetaUser: null
   });
 
-  const step = onboardState.step.get();
-
-  switch(step) {
-    case 0:
-      return <OnboardStepWelcome onboardState={onboardState.step} {...rest} />
-    case 1:
-      return <OnboardStepOne onboardState={onboardState.step} {...rest} />
-    case 2:
-      return <OnboardStepTwo onboardState={onboardState.step} {...rest} />
-    case 3:
-      return <OnboardStepThree onboardState={onboardState.step} {...rest} />
-    case 4:
-      return <OnboardStepFour onboardState={onboardState.step} {...rest} />
-    case 5:
-      return <div>Onboarding Complete!</div>
-    default:
-      return <div>Error</div>
-  }
+  return (
+    <>
+      <p suppressHydrationWarning>Re-renders: {renderCount}</p>
+      <Switch value={onboardState.step}>
+        {{
+          0: () => <OnboardStepWelcome onboardState={onboardState.step} {...rest} />,
+          1: () => <OnboardStepOne onboardState={onboardState} {...rest} />,
+          2: () => <OnboardStepTwo onboardState={onboardState.step} {...rest} />,
+          3: () => <OnboardStepThree onboardState={onboardState.step} {...rest} />,
+          4: () => <OnboardStepFour onboardState={onboardState.step} {...rest} />,
+          5: () => <div>Onboarding Complete! Welcome to Allowance!</div>,
+          default: () => <div>Error!</div>
+        }}
+      </Switch>
+    </>
+  )
 });
 
 export default OnboardContainer;
