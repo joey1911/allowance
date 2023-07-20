@@ -14,7 +14,8 @@ import { updatePassword } from '@/actions/auth'; // eslint-disable-line import/n
 import type { UpdatePasswordResponseError } from '@/actions/auth';
 
 interface UpdatePasswordInput {
-  password: string
+  password: string,
+  confirmPassword: string,
 }
 
 export default function UpdatePasswordForm() {
@@ -49,12 +50,23 @@ export default function UpdatePasswordForm() {
         <Label htmlFor="password">New Password</Label>
         <Input type="password" id="password" {...register('password', {
           required: 'Please enter a new password'
-        })} aria-invalid={errors.password ? 'true': 'false'} />
+        })} aria-invalid={errors.password ? 'true' : 'false'} />
         {errors.password?.message && (<span role="alert">{errors.password.message}</span>)}
       </InputGroup>
+      <InputGroup>
+        <Label htmlFor="confirmPassword">Confirm New Password</Label>
+        <Input
+          type="password"
+          id="confirmPassword"
+          {...register('confirmPassword', {
+            required: 'Password does not match'
+          })} aria-invalid={errors.confirmPassword ? 'true' : 'false'}
+        />
+        {errors.confirmPassword?.message && (<span role="alert">{errors.confirmPassword.message}</span>)}
+      </InputGroup>
       <p>
-        <Button type="submit" size="lg" variant="primary">Submit</Button>
+        <Button type="submit" size="lg" variant="primary" disabled={password.length < 7 || password !== confirmPassword}>Submit</Button>
       </p>
     </form>
-  )
+  );
 };

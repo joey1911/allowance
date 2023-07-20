@@ -72,14 +72,15 @@ export default function Button({
   variant = 'primary',
   size = 'md',
   children,
-  onClick = () => {},
+  onClick = () => { },
+  disabled,
   ...rest
 }: ButtonProps) {
   return (
-    <StyledButton type="button" variant={variant} size={size} onClick={onClick} {...rest}>
+    <StyledButton type="button" variant={variant} size={size} onClick={onClick} disabled={disabled} {...rest}>
       {children}
     </StyledButton>
-  )
+  );
 };
 
 Button.propTypes = {
