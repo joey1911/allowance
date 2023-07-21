@@ -1,10 +1,28 @@
+import type { ObservableObject } from '@legendapp/state';
+import type { User } from '@supabase/auth-helpers-nextjs';
 import { Database } from './supabase';
+
+/* eslint-disable camelcase */
 
 export type AccountProfileRow = Database['public']['Tables']['profiles']['Row']
 
-export type AccountProfile = Omit<AccountProfileRow, 'id' | 'updated_at'>;
+export type AccountProfile = {
+  first_name?: string,
+  last_name?: string,
+  dob?: string,
+  avatar_url?: string
+}
 
-/* eslint-disable camelcase */
+export type AccountMetadata = {
+  onboardStep?: number,
+  marqetaUserToken?: string
+}
+
+export type OnboardState = ObservableObject<{
+  step: number,
+  user: User
+}>
+
 export type VerificationInformation = {
   first_name: string,
   last_name: string,
@@ -17,4 +35,3 @@ export type VerificationInformation = {
   birth_date: string,
   ssn: string
 }
-/* eslint-disable camelcase */

@@ -26,9 +26,17 @@ export default function createSlade(
 
   Slade.createUser = async function createUser(userData: MarqetaUser) {
     try {
-      return await this.HttpClient.makeRequest('users', 'post', userData);
+      const data = await this.HttpClient.makeRequest('users', 'post', userData);
+
+      return {
+        status: 'OK',
+        data
+      };
     } catch (error) {
-      return error;
+      return {
+        status: 'Error',
+        message: error
+      }
     }
   };
 
@@ -95,11 +103,19 @@ export default function createSlade(
 
   Slade.performKycVerification = async function performKycVerification(userToken: string) {
     try {
-      return await this.HttpClient.makeRequest('kyc', 'post', {
+      const data = await this.HttpClient.makeRequest('kyc', 'post', {
         user_token: userToken
       });
+
+      return {
+        status: 'OK',
+        data
+      };
     } catch (error) {
-      return error;
+      return {
+        status: 'Error',
+        message: error
+      };
     }
   };
 

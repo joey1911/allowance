@@ -1,14 +1,10 @@
-import type { User } from '@supabase/auth-helpers-nextjs';
-import type { ObservableObject } from '@legendapp/state';
+import type { OnboardState } from '@/types';
 import VerifyIdentityForm from './VerifyIdentityForm';
 
 export default function OnboardStepOne({
   onboardState
 }: {
-  onboardState: ObservableObject<{
-    step: number,
-    user: User
-  }>
+  onboardState: OnboardState
 }) {
   return (
     <>

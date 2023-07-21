@@ -1,3 +1,5 @@
+'use server'
+
 import { cookies } from 'next/headers';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import type { Database } from '@/types/supabase';
@@ -14,7 +16,7 @@ export default async function getProfile(userId: string) {
   try {
     return await supabase
       .from('profiles')
-      .select(`first_name, last_name, address, address2, city, state, zip_code, dob, avatar_url`)
+      .select(`first_name, last_name, dob, avatar_url`)
       .eq('id', userId)
       .single();
   } catch (error) {

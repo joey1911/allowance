@@ -13,7 +13,14 @@ import {
   InputGroup,
   Button
 } from '@allowance/bash-ui';
-import updateProfile from '@/actions/profile/updateProfile';
+import {
+  updateUserMetadata,
+  updateProfile
+} from '@/actions/user';
+import {
+  createMarqetaUser,
+  kycVerification
+} from '@/actions/marqeta';
 import type { VerificationInformation } from '@/types';
 
 export default function VerifyIdentityForm({
@@ -32,37 +39,46 @@ export default function VerifyIdentityForm({
 
   const { id: userId } = onboardState.user.get();
 
-  /* eslint-disable camelcase */
-  const onSubmit: SubmitHandler<VerificationInformation> = async ({
-    first_name,
-    last_name,
-    address1,
-    address2,
-    city,
-    state,
-    postal_code,
-    birth_date
-  }) => {
-    /*
-    await updateProfile({
-      first_name,
-      last_name,
-      address: address1,
-      address2,
-      city,
-      state,
-      zip_code: postal_code,
-      dob: birth_date,
-      avatar_url: null
-    }, userId);
-    */
+  const onSubmit: SubmitHandler<VerificationInformation> = async (userData) => {
+    const createMarqetaUserResults = await createMarqetaUser(userData, userId);
 
-    // Need to save first name, last name in Profile
-    // Add user in Marqeta
-    // KYC verification
-    onboardState.step.set(2);
+    if (createMarqetaUserResults.status === 'OK') {
+      // const marqetaUser = createMarqetaUserResults.data;
+      const kycVerificationResults = await kycVerification(userId);
+
+      if (kycVerificationResults.status === 'OK') {
+        // I don't think this works / is accessible in sandbox :(
+        const kycVerificationStatus = kycVerificationResults.data.result.status;
+
+        if (kycVerificationStatus !== 'FAILURE' && kycVerificationStatus !== 'PENDING') {
+          // I think this means success?
+        } else {
+          // What do we need to do here? Parse message and see if we need more documentation
+        }
+      }
+
+      const updateProfileResponse = await updateProfile({
+        first_name: userData.first_name,
+        last_name: userData.last_name,
+        dob: userData.birth_date
+      }, userId);
+
+      if (updateProfileResponse.status === 'OK') {
+        const updateUserMetadataResponse = await updateUserMetadata({
+          onboardStep: 2
+        });
+  
+        if (updateUserMetadataResponse.status === 'OK') {
+          onboardState.step.set(2);
+        }
+      }
+
+      return true;
+    }
+
+    // TODO: Display error
+    return false;
   };
-  /* eslint-disable camelcase */
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

@@ -13,7 +13,7 @@ import {
   Button
 } from '@allowance/bash-ui';
 import type { User } from '@supabase/auth-helpers-nextjs';
-import updateProfile from '@/actions/profile/updateProfile';
+import { updateProfile } from '@/actions/user';
 import type { AccountProfile } from '@/types';
 import AvatarUpload from './AvatarUpload';
 
@@ -34,9 +34,14 @@ export default function ProfileForm({
     defaultValues: profileData
   });
 
-  const onSubmit: SubmitHandler<AccountProfile> = (data) => {
-    updateProfile(data, user.id);
-    router.refresh();
+  const onSubmit: SubmitHandler<AccountProfile> = async (data) => {
+    const updateProfileResults = await updateProfile(data, user.id);
+
+    if (updateProfileResults.status === 'OK') {
+      router.refresh();
+    } else {
+      alert(updateProfileResults.message);
+    }
   };
 
   return (
@@ -54,38 +59,6 @@ export default function ProfileForm({
           required: 'Please enter your last name'
         })} aria-invalid={errors.last_name ? 'true': 'false'} />
         {errors.last_name?.message && (<span role="alert">{errors.last_name.message}</span>)}
-      </InputGroup>
-      <InputGroup>
-        <Label htmlFor="address">Address</Label>
-        <Input type="text" id="address" {...register('address', {
-          required: 'Please enter your address'
-        })} aria-invalid={errors.address ? 'true': 'false'} />
-        {errors.address?.message && (<span role="alert">{errors.address.message}</span>)}
-      </InputGroup>
-      <InputGroup>
-        <Label htmlFor="address2">Address Line 2</Label>
-        <Input type="text" id="address2" {...register('address2')} />
-      </InputGroup>
-      <InputGroup>
-        <Label htmlFor="city">City</Label>
-        <Input type="text" id="city" {...register('city', {
-          required: 'Please enter your city'
-        })} aria-invalid={errors.city ? 'true': 'false'} />
-        {errors.city?.message && (<span role="alert">{errors.city.message}</span>)}
-      </InputGroup>
-      <InputGroup>
-        <Label htmlFor="state">State</Label>
-        <Input type="text" id="state" {...register('state', {
-          required: 'Please enter your state'
-        })} aria-invalid={errors.state ? 'true': 'false'} />
-        {errors.state?.message && (<span role="alert">{errors.state.message}</span>)}
-      </InputGroup>
-      <InputGroup>
-        <Label htmlFor="zipCode">Zip Code</Label>
-        <Input type="text" id="zipCode" {...register('zip_code', {
-          required: 'Please enter your zip code'
-        })} aria-invalid={errors.zip_code ? 'true': 'false'} />
-        {errors.zip_code?.message && (<span role="alert">{errors.zip_code.message}</span>)}
       </InputGroup>
       <InputGroup>
         <Label htmlFor="dob">Date of Birth</Label>

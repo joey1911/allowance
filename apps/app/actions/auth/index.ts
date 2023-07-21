@@ -32,25 +32,6 @@ export async function signOut() {
   return false;
 };
 
-export async function updatePassword(password: string) {
-  const supabase = createClientComponentClient<Database>();
-
-  try {
-    return await supabase.auth.updateUser({
-      password
-    });  
-  } catch (error) {
-    return error;
-  } finally {
-    // Log password update
-    // Send an email to let them know the password was updated (or attempted)
-  }
-};
-
-type UpdatePasswordResponse = Awaited<ReturnType<typeof updatePassword>>
-export type UpdatePasswordResponseSuccess = UpdatePasswordResponse['data']
-export type UpdatePasswordResponseError = UpdatePasswordResponse['error']
-
 export async function forgotPassword(email: string) {
   const supabase = createClientComponentClient<Database>();
 

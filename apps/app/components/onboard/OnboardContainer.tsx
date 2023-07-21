@@ -29,8 +29,7 @@ const OnboardContainer = observer(({
   const renderCount = ++useRef(0).current; // eslint-disable-line
   const onboardState = useObservable({
     step: currentStep,
-    user,
-    marqetaUser: null
+    user
   });
 
   return (
@@ -40,8 +39,8 @@ const OnboardContainer = observer(({
         {{
           0: () => <OnboardStepWelcome onboardState={onboardState.step} {...rest} />,
           1: () => <OnboardStepOne onboardState={onboardState} {...rest} />,
-          2: () => <OnboardStepTwo onboardState={onboardState.step} {...rest} />,
-          3: () => <OnboardStepThree onboardState={onboardState.step} {...rest} />,
+          2: () => <OnboardStepTwo onboardState={onboardState} {...rest} />,
+          3: () => <OnboardStepThree onboardState={onboardState} {...rest} />,
           4: () => <OnboardStepFour onboardState={onboardState.step} {...rest} />,
           5: () => <div>Onboarding Complete! Welcome to Allowance!</div>,
           default: () => <div>Error!</div>

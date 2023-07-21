@@ -24,6 +24,11 @@ export default async function DashboardLayout({
     redirect('/');
   }
 
+  if (session.user.user_metadata.onboardStep < 5) {
+    // Redirect to the Customer Onboarding
+    redirect('/onboard');
+  }
+
   return (
     <>
       <header>

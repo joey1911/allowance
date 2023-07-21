@@ -10,8 +10,7 @@ import {
   InputGroup,
   Button
 } from '@allowance/bash-ui';
-import { updatePassword } from '@/actions/auth';
-import type { UpdatePasswordResponseError } from '@/actions/auth';
+import { updatePassword } from '@/actions/user';
 
 interface UpdatePasswordInput {
   password: string
@@ -28,16 +27,12 @@ export default function UpdatePasswordForm() {
   const onSubmit: SubmitHandler<UpdatePasswordInput> = async ({
     password
   }) => {
-    const {
-      error
-    }: {
-      error: UpdatePasswordResponseError
-    } = await updatePassword(password);
+    const updatePasswordResults = await updatePassword(password);
 
-    if (error) {
-      alert('There was an error updating your password');
-    } else {
+    if (updatePasswordResults.status === 'OK') {
       alert('Password updated');
+    } else {
+      alert('There was an error updating your password');
     }
 
     setValue('password', '');
