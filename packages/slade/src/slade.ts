@@ -10,6 +10,7 @@ type SladeObject = {}
 /*
  * TODO: Need to add input validation and cleansing
  * TODO: Build query strings for pagination and filtering
+ * TODO: Need to clean up the code, not DRY
  */
 
 export default function createSlade(
