@@ -51,7 +51,7 @@ export default function PlaidLink({
    *   Step 4: Use "Processor Token" to add funding source to Marqeta
    */
   const onSuccess = useCallback<PlaidLinkOnSuccess>((publicToken, metadata) => {
-    const getAccessToken = async () => {
+    const addFundingSource = async () => {
       /**
        * This is Step 2.
        * 
@@ -105,7 +105,7 @@ export default function PlaidLink({
       }
     };
 
-    getAccessToken();
+    addFundingSource();
   }, []);
 
   const onEvent = useCallback<PlaidLinkOnEvent>((eventName, metadata) => {
