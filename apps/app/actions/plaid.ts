@@ -6,7 +6,11 @@ import {
   PlaidEnvironments,
   type ItemPublicTokenExchangeRequest,
   type LinkTokenCreateRequest,
-  type ProcessorTokenCreateRequest
+  type ProcessorTokenCreateRequest,
+  ProcessorTokenCreateRequestProcessorEnum,
+  DepositoryAccountSubtype,
+  CountryCode,
+  Products
 } from 'plaid';
 
 let basePath = null;
@@ -36,12 +40,15 @@ export async function createLinkToken(userId: string) {
       client_user_id: userId
     },
     client_name: 'Allowance',
-    products: ['auth'],
-    country_codes: ['US'],
+    products: [Products.Auth],
+    country_codes: [CountryCode.Us],
     language: 'en',
     account_filters: {
       depository: {
-        account_subtypes: ['checking', 'savings']
+        account_subtypes: [
+          DepositoryAccountSubtype.Checking,
+          DepositoryAccountSubtype.Savings
+        ]
       }
     }
   }
@@ -61,7 +68,7 @@ export async function createProcessorToken(accessToken: string, accountId: strin
   const request: ProcessorTokenCreateRequest = {
     access_token: accessToken,
     account_id: accountId,
-    processor: 'marqeta'
+    processor: ProcessorTokenCreateRequestProcessorEnum.Marqeta
   }
 
   return plaidClient.processorTokenCreate(request);
