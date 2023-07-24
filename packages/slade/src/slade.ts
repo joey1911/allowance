@@ -35,7 +35,7 @@ export default function createSlade(
     } catch (error) {
       return {
         status: 'Error',
-        message: error
+        message: error.message
       }
     }
   };
@@ -114,7 +114,7 @@ export default function createSlade(
     } catch (error) {
       return {
         status: 'Error',
-        message: error
+        message: error.message
       };
     }
   };
@@ -124,6 +124,30 @@ export default function createSlade(
       return await this.HttpClient.makeRequest(`kyc/user/${userToken}`, 'get');
     } catch (error) {
       return error;
+    }
+  };
+
+  Slade.createFundingSourceViaPartner = async function createFundingSourceViaPartner(
+    userToken: string,
+    partnerReferenceToken: string
+  ) {
+    try {
+      const data = await this.HttpClient.makeRequest('fundingsources/ach/partner', 'post', {
+        user_token: userToken,
+        partner_account_link_reference_token: partnerReferenceToken,
+        partner: 'PLAID'
+      });
+
+      return {
+        status: 'OK',
+        data
+      };
+    } catch (error) {
+      console.log(error);
+      return {
+        status: 'Error',
+        message: error.message
+      };
     }
   };
 

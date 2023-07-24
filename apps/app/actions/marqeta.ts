@@ -52,3 +52,7 @@ export async function createMarqetaUser({
 export async function kycVerification(userId: string) {
   return sladeClient.performKycVerification(userId);
 };
+
+export async function createFundingSourceViaPartner(userToken: string, partnerReferenceToken: string) {
+  return sladeClient.createFundingSourceViaPartner(userToken, partnerReferenceToken);
+}
