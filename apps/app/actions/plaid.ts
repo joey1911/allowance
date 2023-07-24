@@ -16,12 +16,18 @@ import {
 let basePath = null;
 
 switch(process.env['NEXT_PLAID_ENVIRONMENT']) {
+  case 'development':
+    basePath = PlaidEnvironments.development;
+    break;
+  case 'production':
+    basePath = PlaidEnvironments.production;
+    break;
   case 'sandbox':
+  default:
     basePath = PlaidEnvironments.sandbox;
     break;
-  default:
-    // need to throw an error
 }
+
 const configuration = new Configuration({
   basePath,
   baseOptions: {
