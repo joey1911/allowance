@@ -43,13 +43,18 @@ export default function createSlade(
       return {
         status: 'Error',
         message: errorMessage
-      }
+      };
     }
   };
 
   Slade.getUser = async function getUser(userToken: string) {
     try {
-      return await this.HttpClient.makeRequest(`users/${userToken}`, 'get');
+      const data = await this.HttpClient.makeRequest(`users/${userToken}`, 'get');
+
+      return {
+        status: 'OK',
+        data
+      };
     } catch (error) {
       const errorMessage = getErrorMessage(error);
       reportError({ message: errorMessage });
@@ -57,13 +62,18 @@ export default function createSlade(
       return {
         status: 'Error',
         message: errorMessage
-      }
+      };
     }
   };
 
   Slade.updateUser = async function updateUser(userToken: string, userData: MarqetaUser) {
     try {
-      return await this.HttpClient.makeRequest(`users/${userToken}`, 'put', userData);
+      const data = await this.HttpClient.makeRequest(`users/${userToken}`, 'put', userData);
+
+      return {
+        status: 'OK',
+        data
+      };
     } catch (error) {
       const errorMessage = getErrorMessage(error);
       reportError({ message: errorMessage });
@@ -71,7 +81,7 @@ export default function createSlade(
       return {
         status: 'Error',
         message: errorMessage
-      }
+      };
     }
   };
 
@@ -82,7 +92,12 @@ export default function createSlade(
    */
   Slade.getIdentificationNumber = async function getIdentificationNumber(userToken: string) {
     try {
-      return await this.HttpClient.makeRequest(`users/${userToken}/ssn`, 'get');
+      const data = await this.HttpClient.makeRequest(`users/${userToken}/ssn`, 'get');
+
+      return {
+        status: 'OK',
+        data
+      };
     } catch (error) {
       const errorMessage = getErrorMessage(error);
       reportError({ message: errorMessage });
@@ -90,13 +105,18 @@ export default function createSlade(
       return {
         status: 'Error',
         message: errorMessage
-      }
+      };
     }
   };
 
   Slade.listChildAccounts = async function listChildAccounts(parentToken: string) {
     try {
-      return await this.HttpClient.makeRequest(`users/${parentToken}/children`, 'get');
+      const data = await this.HttpClient.makeRequest(`users/${parentToken}/children`, 'get');
+
+      return {
+        status: 'OK',
+        data
+      };
     } catch (error) {
       const errorMessage = getErrorMessage(error);
       reportError({ message: errorMessage });
@@ -104,13 +124,18 @@ export default function createSlade(
       return {
         status: 'Error',
         message: errorMessage
-      }
+      };
     }
   };
 
   Slade.listUsers = async function listUsers() {
     try {
-      return await this.HttpClient.makeRequest('users', 'get');
+      const data = await this.HttpClient.makeRequest('users', 'get');
+
+      return {
+        status: 'OK',
+        data
+      };
     } catch (error) {
       const errorMessage = getErrorMessage(error);
       reportError({ message: errorMessage });
@@ -118,7 +143,7 @@ export default function createSlade(
       return {
         status: 'Error',
         message: errorMessage
-      }
+      };
     }
   };
 
@@ -130,9 +155,14 @@ export default function createSlade(
    */
   Slade.createClientAccessToken = async function createClientAccessToken(cardToken: string) {
     try {
-      return await this.HttpClient.makeRequest('users/auth/clientaccesstoken', 'post', {
+      const data = await this.HttpClient.makeRequest('users/auth/clientaccesstoken', 'post', {
         card_token: cardToken
       });
+
+      return {
+        status: 'OK',
+        data
+      };
     } catch (error) {
       const errorMessage = getErrorMessage(error);
       reportError({ message: errorMessage });
@@ -140,7 +170,7 @@ export default function createSlade(
       return {
         status: 'Error',
         message: errorMessage
-      }
+      };
     }
   };
 
@@ -161,13 +191,18 @@ export default function createSlade(
       return {
         status: 'Error',
         message: errorMessage
-      }
+      };
     }
   };
 
   Slade.getKycVerificationResults = async function getKycVerificationResults(userToken: string) {
     try {
-      return await this.HttpClient.makeRequest(`kyc/user/${userToken}`, 'get');
+      const data = await this.HttpClient.makeRequest(`kyc/user/${userToken}`, 'get');
+
+      return {
+        status: 'OK',
+        data
+      };
     } catch (error) {
       const errorMessage = getErrorMessage(error);
       reportError({ message: errorMessage });
@@ -175,7 +210,7 @@ export default function createSlade(
       return {
         status: 'Error',
         message: errorMessage
-      }
+      };
     }
   };
 
@@ -201,7 +236,7 @@ export default function createSlade(
       return {
         status: 'Error',
         message: errorMessage
-      }
+      };
     }
   };
 
