@@ -26,7 +26,7 @@ switch(process.env['NEXT_PLAID_ENVIRONMENT']) {
   default:
     basePath = PlaidEnvironments.sandbox;
     break;
-}
+};
 
 const configuration = new Configuration({
   basePath,
@@ -40,6 +40,11 @@ const configuration = new Configuration({
 
 const plaidClient = new PlaidApi(configuration);
 
+/**
+ * Create the Link Token needed for the Plaid Link component
+ * @param userId string Allowance User Id
+ * @returns Promise<AxiosResponse<LinkTokenCreateResponse>>
+ */
 export async function createLinkToken(userId: string) {
   const request: LinkTokenCreateRequest = {
     user: {
@@ -62,6 +67,11 @@ export async function createLinkToken(userId: string) {
   return plaidClient.linkTokenCreate(request);
 };
 
+/**
+ * Exchange Public Token for an Access Token
+ * @param publicToken string Public token returned from Link component
+ * @returns Promise<AxiosResponse<ItemPublicTokenExchangeResponse>>
+ */
 export async function createAccessTokenFromPublicToken(publicToken: string) {
   const request: ItemPublicTokenExchangeRequest = {
     public_token: publicToken
@@ -70,6 +80,12 @@ export async function createAccessTokenFromPublicToken(publicToken: string) {
   return plaidClient.itemPublicTokenExchange(request);
 };
 
+/**
+ * Get Processor Token from Plaid to use for adding funding source to Marqeta
+ * @param accessToken string Plaid access token
+ * @param accountId string Selected Link flow bank account id
+ * @returns Promise<AxiosResponse<ProcessorTokenCreateResponse>>
+ */
 export async function createProcessorToken(accessToken: string, accountId: string) {
   const request: ProcessorTokenCreateRequest = {
     access_token: accessToken,
@@ -78,4 +94,4 @@ export async function createProcessorToken(accessToken: string, accountId: strin
   }
 
   return plaidClient.processorTokenCreate(request);
-}
+};
