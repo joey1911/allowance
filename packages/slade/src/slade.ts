@@ -1,3 +1,7 @@
+import {
+  getErrorMessage,
+  reportError
+} from '@allowance/utilities';
 import FetchClient from './net/FetchClient';
 import type { MarqetaUser } from './types';
 
@@ -33,9 +37,12 @@ export default function createSlade(
         data
       };
     } catch (error) {
+      const errorMessage = getErrorMessage(error);
+      reportError({ message: errorMessage });
+
       return {
         status: 'Error',
-        message: error.message
+        message: errorMessage
       }
     }
   };
@@ -44,7 +51,13 @@ export default function createSlade(
     try {
       return await this.HttpClient.makeRequest(`users/${userToken}`, 'get');
     } catch (error) {
-      return error;
+      const errorMessage = getErrorMessage(error);
+      reportError({ message: errorMessage });
+
+      return {
+        status: 'Error',
+        message: errorMessage
+      }
     }
   };
 
@@ -52,7 +65,13 @@ export default function createSlade(
     try {
       return await this.HttpClient.makeRequest(`users/${userToken}`, 'put', userData);
     } catch (error) {
-      return error;
+      const errorMessage = getErrorMessage(error);
+      reportError({ message: errorMessage });
+
+      return {
+        status: 'Error',
+        message: errorMessage
+      }
     }
   };
 
@@ -65,7 +84,13 @@ export default function createSlade(
     try {
       return await this.HttpClient.makeRequest(`users/${userToken}/ssn`, 'get');
     } catch (error) {
-      return error;
+      const errorMessage = getErrorMessage(error);
+      reportError({ message: errorMessage });
+
+      return {
+        status: 'Error',
+        message: errorMessage
+      }
     }
   };
 
@@ -73,7 +98,13 @@ export default function createSlade(
     try {
       return await this.HttpClient.makeRequest(`users/${parentToken}/children`, 'get');
     } catch (error) {
-      return error;
+      const errorMessage = getErrorMessage(error);
+      reportError({ message: errorMessage });
+
+      return {
+        status: 'Error',
+        message: errorMessage
+      }
     }
   };
 
@@ -81,7 +112,13 @@ export default function createSlade(
     try {
       return await this.HttpClient.makeRequest('users', 'get');
     } catch (error) {
-      return error;
+      const errorMessage = getErrorMessage(error);
+      reportError({ message: errorMessage });
+
+      return {
+        status: 'Error',
+        message: errorMessage
+      }
     }
   };
 
@@ -97,7 +134,13 @@ export default function createSlade(
         card_token: cardToken
       });
     } catch (error) {
-      return error;
+      const errorMessage = getErrorMessage(error);
+      reportError({ message: errorMessage });
+
+      return {
+        status: 'Error',
+        message: errorMessage
+      }
     }
   };
 
@@ -112,10 +155,13 @@ export default function createSlade(
         data
       };
     } catch (error) {
+      const errorMessage = getErrorMessage(error);
+      reportError({ message: errorMessage });
+
       return {
         status: 'Error',
-        message: error.message
-      };
+        message: errorMessage
+      }
     }
   };
 
@@ -123,7 +169,13 @@ export default function createSlade(
     try {
       return await this.HttpClient.makeRequest(`kyc/user/${userToken}`, 'get');
     } catch (error) {
-      return error;
+      const errorMessage = getErrorMessage(error);
+      reportError({ message: errorMessage });
+
+      return {
+        status: 'Error',
+        message: errorMessage
+      }
     }
   };
 
@@ -143,11 +195,13 @@ export default function createSlade(
         data
       };
     } catch (error) {
-      console.log(error);
+      const errorMessage = getErrorMessage(error);
+      reportError({ message: errorMessage });
+
       return {
         status: 'Error',
-        message: error.message
-      };
+        message: errorMessage
+      }
     }
   };
 
