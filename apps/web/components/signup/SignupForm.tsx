@@ -7,6 +7,7 @@ import {
 } from 'react-hook-form';
 import {
   Label,
+  Checkbox,
   Input,
   InputGroup,
   Button
@@ -55,16 +56,20 @@ export default function SignupForm({
         <Label htmlFor="email">Email</Label>
         <Input type="email" id="email" {...register('email', {
           required: 'Please enter your email'
-        })} aria-invalid={errors.email ? 'true': 'false'} />
+        })} aria-invalid={errors.email ? 'true' : 'false'} />
         {errors.email?.message && (<span role="alert">{errors.email.message}</span>)}
       </InputGroup>
       <InputGroup>
         <Label htmlFor="password">Password</Label>
         <Input type="password" id="password" {...register('password', {
           required: 'Please enter a password'
-        })} aria-invalid={errors.password ? 'true': 'false'} />
+        })} aria-invalid={errors.password ? 'true' : 'false'} />
         {errors.password?.message && (<span role="alert">{errors.password.message}</span>)}
       </InputGroup>
+      <Checkbox label="I Agree to the Terms of Service" {...register('tos', {
+        required: 'Please review and agree to our Terms of Service'
+      })} aria-invalid={errors.tos ? 'true' : 'false'} />
+      {errors.tos?.message && (<span role="alert">{errors.tos.message}</span>)}
       <p>
         <Button type="submit" size="lg" variant="primary">Signup</Button>
       </p>

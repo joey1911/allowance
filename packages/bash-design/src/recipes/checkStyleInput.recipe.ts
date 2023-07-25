@@ -16,7 +16,7 @@ const checkStyleInputRecipe = defineRecipe({
       left: '-9999px',
       '&:checked + span': {
         '&:before': {
-          boxShadow: 'inset 0 0 0 0.4375em token(colors.background.blue.subtlest)'
+          boxShadow: 'inset 0 0 0 0.4375em token(colors.background.accent.blue.subtlest)'
         }
       }
     },
@@ -32,7 +32,7 @@ const checkStyleInputRecipe = defineRecipe({
         height: '1.5em',
         marginRight: '0.375em',
         transition: '0.25s ease',
-        boxShadow: 'inset 0 0 0 0.125em token(colors.background.blue.subtlest)'
+        boxShadow: 'inset 0 0 0 0.125em token(colors.background.accent.blue.subtlest)'
       }
     }
   },

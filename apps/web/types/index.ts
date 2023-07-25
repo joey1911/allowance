@@ -18,7 +18,8 @@ export type UserMetadata = {
 
 export type SignupDataBasic = {
   email: string,
-  password: string
+  password: string,
+  tos: boolean
 }
 
 export type SignupData = {
