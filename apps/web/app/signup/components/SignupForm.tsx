@@ -1,11 +1,11 @@
 'use client'
 
 import React from 'react';
+import { ReactForm } from '@allowance/bash-ui';
 import {
-  Button,
-  ReactForm
-} from '@allowance/bash-ui';
-import { SignupFormSchema, SignupFormSchemaType } from '../signupSchema';
+  SignupFormSchema,
+  SignupFormSchemaType
+} from '../signupSchema';
 import signupFormHandler from '../signupFormHandler';
 
 export default function SignupForm() {

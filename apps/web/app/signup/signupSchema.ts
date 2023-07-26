@@ -19,5 +19,5 @@ export const SignupFormSchema = z.object({
 export type SignupFormSchemaType = z.infer<typeof SignupFormSchema>
 
 export type SignupFormContextType = {
-  register: (name: string, options?: any) => {}
+  register: (name: string, options?: any) => {} // eslint-disable-line no-unused-vars
 }
