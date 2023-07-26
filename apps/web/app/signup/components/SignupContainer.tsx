@@ -1,21 +1,17 @@
 'use client'
 
 import React from 'react';
-import { observable } from '@legendapp/state';
 import { observer } from '@legendapp/state/react';
 import SignupForm from './SignupForm';
 import SignupConfirmation from './SignupConfirmation';
-
-const signupStatus = observable({
-  step: 1
-});
+import signupState from '../signupState';
 
 const SignupContainer = observer(() => {
-  const currentStep = signupStatus.step.get();
+  const currentStep = signupState.step.get();
 
   switch(currentStep) {
     case 1:
-      return <SignupForm signupState={signupStatus.step} />
+      return <SignupForm />
     case 2:
       return <SignupConfirmation />
     default:

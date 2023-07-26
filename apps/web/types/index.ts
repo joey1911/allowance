@@ -15,23 +15,3 @@ export type UserMetadata = {
   zip_code: string,
   dob: Date
 };
-
-export type SignupDataBasic = {
-  email: string,
-  password: string,
-  tos: boolean
-}
-
-export type SignupData = {
-  email: string,
-  phone: string,
-  password: string,
-  first_name: string,
-  last_name: string,
-  address: string,
-  address2?: string,
-  city: string,
-  state: string,
-  zip_code: string,
-  dob: Date
-}

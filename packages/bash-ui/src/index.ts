@@ -12,3 +12,4 @@ export * from './Radio';
 export * from './Input';
 export * from './InputGroup';
 export * from './Switch';
+export * from './ReactForm';
