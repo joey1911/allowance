@@ -25,21 +25,25 @@ const buttonStyle = cva({
     fontWeight: "700",
     cursor: "pointer",
     color: "stone.800",
-    bg: "stone.50",
+    bg: "button.primary",
     lineHeight: "1",
-    borderRadius: "lg",
+    borderRadius: "65px",
     _hover: {
-      bg: "red.400"
+      bg: "button.primary.hovered"
     }
   },
   compoundVariants: [],
   variants: {
     variant: {
-      primary: { color: "stone.100", bg: "green.500" },
+      primary: { color: "text.white", bg: "button.primary" },
       secondary: {
-        color: "stone.800",
-        bg: "stone.100",
-        boxShadow: "rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset"
+        color: "text.black",
+        bg: "button.secondary",
+        boxShadow: "rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset",
+        _hover: {
+          bg: "button.primary",
+          color: "text.white"
+        }
       },
       warning: {
         color: "text.warning",
@@ -55,11 +59,13 @@ const buttonStyle = cva({
         fontSize: "sm"
       },
       md: {
-        padding: "4",
+        paddingTop: "11px",
+        paddingBottom: "13px",
+        paddingX: "17px",
         fontSize: "md"
       },
       lg: {
-        padding: "6",
+        paddingY: "11px",
         fontSize: "lg"
       }
     }
