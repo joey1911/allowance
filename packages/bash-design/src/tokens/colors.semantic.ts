@@ -1,26 +1,5 @@
 import type { SemanticTokens } from '@pandacss/types';
 
-//  bold: {
-//         DEFAULT: {
-//           value: { base: "#626AF1" },
-//         },
-//         dark: {
-//           value: {base: "#4951E0"}
-//         },
-//         light: {
-//           value: { base: "#C6C6EC" },
-//         },
-//         lighter: {
-//           value: { base: "#F5F5FF" },
-//         },
-//         hovered: {
-//           value: { base: "{colors.blue.800}", _dark: "{colors.blue.300}" },
-//         },
-//         pressed: {
-//           value: { base: "{colors.blue.900}", _dark: "{colors.blue.200}" },
-//         },
-//       },
-
 const semanticColors: SemanticTokens['colors'] = {
   button: {
     primary: {
