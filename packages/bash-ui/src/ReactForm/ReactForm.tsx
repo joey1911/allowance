@@ -69,7 +69,7 @@ ReactForm.Input = function Input<Model extends Record<string, any>>({
         {...register(name as string)}
         disabled={isSubmitting}
       />
-      {errors[name as string] && (<span role="alert">{errors[name as string]?.message}</span>)}
+      {errors[name as string] && (<span role="alert">{errors[name as string]?.message?.toString()}</span>)}
     </InputGroup>
   )
 };
@@ -89,7 +89,7 @@ ReactForm.Checkbox = function Checkbox({
   return (
     <>
       <CheckboxPrimitive label={text} {...register(name)} aria-invalid={errors[name] ? 'true' : 'false'} disabled={isSubmitting} />
-      {errors[name] && (<span role="alert">{errors[name]?.message}</span>)}
+      {errors[name] && (<span role="alert">{errors[name]?.message?.toString()}</span>)}
     </>
   )
 };
