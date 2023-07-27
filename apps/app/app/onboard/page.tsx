@@ -1,5 +1,5 @@
-import { OnboardContainer } from './components';
 import getUser from '@/actions/user/getUser';
+import { OnboardContainer } from './components';
 
 export default async function Page() {
   const loggedInUser = await getUser();
