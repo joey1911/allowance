@@ -1,4 +1,4 @@
-import ProfileFormContainer from '@/components/profile/ProfileFormContainer';
+import { ProfileFormContainer } from './components';
 
 export default function Page() {
   return (
