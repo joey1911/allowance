@@ -10,7 +10,7 @@ import { flex } from '@allowance/styled-system/patterns';
 import { css } from '@allowance/styled-system/css';
 import type { Session } from '@supabase/auth-helpers-nextjs';
 import SignOutButton from '@/components/SignOutButton';
-import DashboardNavbar from '@/components/DashboardNavbar';
+import { DashboardNavbar } from './components';
 import getSession from '@/actions/getSession';
 
 export default async function DashboardLayout({
