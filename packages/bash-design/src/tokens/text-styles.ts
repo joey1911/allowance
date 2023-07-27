@@ -60,12 +60,24 @@ const textStyles ={
     }
   },
   sm: {
-    description: 'P Font style - Small',
+    description: 'Font style - Small',
     value: {
       fontFamily: 'sans',
       fontWeight: '400',
-      fontSize: 'md',
+      fontSize: 'sm',
       lineHeight: '1.50rem',
+      letterSpacing: '0px',
+      textDecoration: 'none',
+      textTransform: 'none'
+    }
+  },
+  xs: {
+    description: 'Font style - Extra Small',
+    value: {
+      fontFamily: 'sans',
+      fontWeight: '400',
+      fontSize: 'xs',
+      lineHeight: '1.25rem',
       letterSpacing: '0px',
       textDecoration: 'none',
       textTransform: 'none'
