@@ -9,13 +9,11 @@ import {
   Switch
 } from '@legendapp/state/react';
 import type { User } from '@supabase/auth-helpers-nextjs';
-import {
-  OnboardStepWelcome,
-  OnboardStepOne,
-  OnboardStepTwo,
-  OnboardStepThree,
-  OnboardStepFour
-} from '@/components/onboard';
+import { OnboardWelcome } from './welcome';
+import { OnboardStepOne } from './stepone';
+import { OnboardStepTwo } from './steptwo';
+import { OnboardStepThree } from './stepthree';
+import { OnboardStepFour } from './stepfour';
 
 // TODO: Would this be better off as a state machine? For now, KISS
 const OnboardContainer = observer(({
@@ -37,7 +35,7 @@ const OnboardContainer = observer(({
       <p suppressHydrationWarning>Re-renders: {renderCount}</p>
       <Switch value={onboardState.step}>
         {{
-          0: () => <OnboardStepWelcome onboardState={onboardState.step} {...rest} />,
+          0: () => <OnboardWelcome onboardState={onboardState.step} {...rest} />,
           1: () => <OnboardStepOne onboardState={onboardState} {...rest} />,
           2: () => <OnboardStepTwo onboardState={onboardState} {...rest} />,
           3: () => <OnboardStepThree onboardState={onboardState} {...rest} />,

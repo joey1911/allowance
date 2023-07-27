@@ -1,6 +1,6 @@
 import { ObservablePrimitiveChildFns } from '@legendapp/state';
 
-export default function OnboardStepWelcome({
+export default function OnboardWelcome({
   onboardState
 }: {
   onboardState: ObservablePrimitiveChildFns<number>

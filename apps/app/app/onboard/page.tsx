@@ -1,4 +1,4 @@
-import OnboardContainer from '@/components/onboard/OnboardContainer';
+import OnboardContainer from './components/OnboardContainer';
 import getUser from '@/actions/user/getUser';
 
 export default async function Page() {

@@ -1,0 +1,1 @@
+export { default as OnboardStepTwo } from './OnboardStepTwo'; // eslint-disable-line import/prefer-default-export

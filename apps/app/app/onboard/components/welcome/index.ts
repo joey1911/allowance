@@ -1,0 +1,1 @@
+export { default as OnboardWelcome } from './OnboardWelcome'; // eslint-disable-line import/prefer-default-export
