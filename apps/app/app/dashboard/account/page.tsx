@@ -1,4 +1,4 @@
-import UpdatePasswordForm from '@/components/account/UpdatePasswordForm';
+import { UpdatePasswordForm } from './components';
 
 export default function Page() {
   return (
