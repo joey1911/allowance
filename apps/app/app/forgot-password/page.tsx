@@ -2,7 +2,7 @@ import {
   Section,
   Container
 } from '@allowance/bash-ui';
-import ForgotPasswordForm from '@/components/ForgotPasswordForm';
+import { ForgotPasswordForm } from './components';
 
 export default function Page() {
   return (

@@ -11,10 +11,7 @@ import {
   Button
 } from '@allowance/bash-ui';
 import { forgotPassword } from '@/actions/auth';
-import type {
-  ForgotPasswordResponseSuccess,
-  ForgotPasswordResponseError
-} from '@/actions/auth';
+import type { ForgotPasswordResponseError } from '@/actions/auth';
 
 interface ForgotPasswordInput {
   email: string
@@ -29,15 +26,11 @@ export default function ForgotPasswordForm() {
 
   const onSubmit: SubmitHandler<ForgotPasswordInput> = async ({ email }) => {
     const {
-      data,
       error
     }: {
-      data: ForgotPasswordResponseSuccess,
       error: ForgotPasswordResponseError
     } = await forgotPassword(email);
 
-    console.log(data);
-    console.log(error);
     if (error) {
       alert('There was an error resetting your password');
     } else {
