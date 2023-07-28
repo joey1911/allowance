@@ -12,7 +12,6 @@ import {
   Button
 } from '@allowance/bash-ui';
 import { loginWithPassword } from '@/actions/auth';
-import type { LoginResponseError } from '@/actions/auth';
 
 interface LoginInput {
   email: string,
@@ -33,17 +32,13 @@ export default function LoginForm() {
     email,
     password
   }) => {
-    const {
-      error
-    }: {
-      error: LoginResponseError
-    } = await loginWithPassword(email, password);
+    const response = await loginWithPassword(email, password);
 
-    if (error) {
+    if (response.status === 'OK') {
+      router.refresh();
+    } else {
       alert('Username or password are incorrect');
       setValue('password', '');
-    } else {
-      router.refresh();
     }
   };
 

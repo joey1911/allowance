@@ -8,7 +8,9 @@ export default function SignOutButton() {
   const router = useRouter();
 
   const signoutHandler = async () => {
-    if (await signOut()) {
+    const response = await signOut();
+
+    if (response.status === 'OK') {
       router.refresh();
     } else {
       // hrm ... what should we do if there's any error signing out?

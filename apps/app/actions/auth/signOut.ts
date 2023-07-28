@@ -7,12 +7,21 @@ import type { Database } from '@/types/supabase';
 
 export default async function signOut() {
   const supabase = createClientComponentClient<Database>();
+
+  try {
+    const response = await supabase.auth.signOut();
+
+    return {
+      status: 'OK',
+      data: response
+    };
+  } catch (error) {
+    const errorMessage = getErrorMessage(error);
+    reportError({ message: errorMessage });
   
-  const { error } = await supabase.auth.signOut();
-
-  if (!error) {
-    return true;
+    return {
+      status: 'Error',
+      message: errorMessage
+    };
   }
-
-  return false;
 };

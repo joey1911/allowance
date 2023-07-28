@@ -9,17 +9,29 @@ export default async function loginWithPassword(email: string, password: string)
   const supabase = createClientComponentClient<Database>();
 
   try {
-    return await supabase.auth.signInWithPassword({
+    const response = await supabase.auth.signInWithPassword({
       email,
       password
     });
+
+    return {
+      status: 'OK',
+      data: response
+    };
   } catch(error) {
-    return error;
+    const errorMessage = getErrorMessage(error);
+    reportError({ message: errorMessage });
+  
+    return {
+      status: 'Error',
+      message: errorMessage
+    };
   } finally {
     // Log login attempt
   }
 };
-
+/*
 type LoginResponse = Awaited<ReturnType<typeof loginWithPassword>>
 export type LoginResponseSuccess = LoginResponse['data']
 export type LoginResponseError = LoginResponse['error']
+*/
