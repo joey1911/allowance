@@ -5,7 +5,7 @@ import {
 } from '@allowance/bash-ui';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { css } from '@allowance/styled-system/css';
-import LoginForm from '@/components/LoginForm';
+import LoginForm from './login/components/LoginForm';
 
 export default function Page() {
   return (

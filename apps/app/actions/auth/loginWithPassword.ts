@@ -14,10 +14,14 @@ export default async function loginWithPassword(email: string, password: string)
       password
     });
 
-    return {
-      status: 'OK',
-      data: response
-    };
+    if (!response.error) {
+      return {
+        status: 'OK',
+        data: response
+      };
+    }
+
+    throw new Error(response.error.message);
   } catch(error) {
     const errorMessage = getErrorMessage(error);
     reportError({ message: errorMessage });
