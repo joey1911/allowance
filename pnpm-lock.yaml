@@ -193,6 +193,9 @@ importers:
       '@allowance/bash-ui':
         specifier: workspace:*
         version: link:../../packages/bash-ui
+      '@allowance/utilities':
+        specifier: workspace:^
+        version: link:../../packages/utilities
       '@legendapp/state':
         specifier: ^1.3.6
         version: 1.3.6(react@18.2.0)

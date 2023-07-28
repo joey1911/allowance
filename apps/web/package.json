@@ -13,6 +13,7 @@
   "dependencies": {
     "@allowance/bash-design": "workspace:*",
     "@allowance/bash-ui": "workspace:*",
+    "@allowance/utilities": "workspace:^",
     "@legendapp/state": "^1.3.6",
     "@pandacss/preset-panda": "^0.6.0",
     "@pandacss/types": "^0.6.0",
