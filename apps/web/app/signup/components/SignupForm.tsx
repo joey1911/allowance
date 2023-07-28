@@ -4,7 +4,7 @@ import React from 'react';
 import { ReactForm } from '@allowance/bash-ui';
 import {
   SignupFormSchema,
-  SignupFormSchemaType
+  type SignupFormSchemaType
 } from '../signupSchema';
 import signupFormHandler from '../signupFormHandler';
 
