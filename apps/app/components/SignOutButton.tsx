@@ -11,7 +11,7 @@ export default function SignOutButton() {
     const response = await signOut();
 
     if (response.status === 'OK') {
-      router.refresh();
+      router.replace('/');
     } else {
       // hrm ... what should we do if there's any error signing out?
     }
