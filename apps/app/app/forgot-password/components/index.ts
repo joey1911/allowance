@@ -1,1 +1,3 @@
-export { default as ForgotPasswordForm } from './ForgotPasswordForm'; // eslint-disable-line import/prefer-default-export
+export { default as ForgotPasswordContainer } from './ForgotPasswordContainer';
+export { default as ForgotPasswordForm } from './ForgotPasswordForm';
+export { default as ForgotPasswordConfirmation } from './ForgotPasswordConfirmation';
