@@ -3,6 +3,7 @@ export * from './Section';
 export * from './Container';
 
 export * from './Navbar';
+export * from './Dialog';
 
 export * from './Fieldset';
 export * from './Label';

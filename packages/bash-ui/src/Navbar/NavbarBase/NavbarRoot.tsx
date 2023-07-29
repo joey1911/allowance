@@ -31,8 +31,7 @@ const navbarRootStyle = cva({
   base: {
     position: 'relative',
     display: 'flex',
-    justifyContent: 'center',
-    zIndex: 1  
+    justifyContent: 'center'
   },
   variants: {
     menuPlacement: {

@@ -1,0 +1,1 @@
+export { default as Dialog } from './Dialog'; // eslint-disable-line import/prefer-default-export
