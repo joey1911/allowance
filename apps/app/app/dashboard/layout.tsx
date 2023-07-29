@@ -34,7 +34,7 @@ export default async function DashboardLayout({
       <header>
         <Container>
           <div className={flex({ direction: 'row', align: 'center' })}>
-            <Box>Allowance Admin</Box>
+            <Box>Allowance</Box>
             <div className={css({ marginLeft: 'auto' })}>
               <SignOutButton />
             </div>
@@ -43,7 +43,6 @@ export default async function DashboardLayout({
       </header>
       <div className={flex({ direction: 'row', gap: '3' })}>
         <div>
-          Left Side Navigation
           <DashboardNavbar />
         </div>
         <div>

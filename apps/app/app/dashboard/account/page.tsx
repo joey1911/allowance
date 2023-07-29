@@ -5,13 +5,12 @@ export default function Page() {
   return (
     <>
       <h1>Account Settings</h1>
-      <UpdatePasswordForm />
       <Dialog
-        trigger={<button>Open</button>}
-        title="Test"
-        description="Test description"
+        trigger={<button>Change Password</button>}
+        title="Change Account Password"
+        description="We recommend using at least 8 characters."
       >
-        <p>Hello World!</p>
+        <UpdatePasswordForm />
       </Dialog>
     </>
   )

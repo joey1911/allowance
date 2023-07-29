@@ -7,8 +7,7 @@ const styles = css({
   opacity: '.8',
   position: 'fixed',
   inset: 0,
-  animation: 'fadeIn 150ms cubic-bezier(0.16, 1, 0.3, 1)',
-  zIndex: 999
+  animation: 'fadeIn 150ms cubic-bezier(0.16, 1, 0.3, 1)'
 });
 
 export default function DialogOverlay() {

@@ -48,7 +48,7 @@ export default function UpdatePasswordForm() {
         {errors.password?.message && (<span role="alert">{errors.password.message}</span>)}
       </InputGroup>
       <p>
-        <Button type="submit" size="lg" variant="primary">Submit</Button>
+        <Button type="submit" size="lg" variant="primary">Save</Button>
       </p>
     </form>
   )

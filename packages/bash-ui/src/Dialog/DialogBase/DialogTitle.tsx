@@ -8,7 +8,8 @@ const styles = css({
   margin: 0,
   fontWeight: 500,
   color: 'text.accent.purple',
-  fontSize: 17
+  fontSize: '2xl',
+  lineHeight: '1.25em'
 });
 
 export default function DialogTitle({
