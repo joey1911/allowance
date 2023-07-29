@@ -7,4 +7,11 @@ const signupState = observable({
   }
 });
 
+export function resetSignupState() {
+  signupState.step.set(1);
+  signupState.formData.set({
+    email: null
+  });
+};
+
 export default signupState;

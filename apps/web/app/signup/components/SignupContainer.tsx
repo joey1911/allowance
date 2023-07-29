@@ -1,22 +1,24 @@
 'use client'
 
 import React from 'react';
-import { observer } from '@legendapp/state/react';
+import {
+  observer,
+  Switch
+} from '@legendapp/state/react';
 import SignupForm from './SignupForm';
 import SignupConfirmation from './SignupConfirmation';
 import signupState from '../signupState';
 
-const SignupContainer = observer(() => {
-  const currentStep = signupState.step.get();
-
-  switch(currentStep) {
-    case 1:
-      return <SignupForm />
-    case 2:
-      return <SignupConfirmation />
-    default:
-      return <div>Error</div>
-  }
-});
+const SignupContainer = observer(() =>
+  (
+    <Switch value={signupState.step}>
+      {{
+        1: () => <SignupForm />,
+        2: () => <SignupConfirmation />,
+        default: () => <div>Error!</div>
+      }}
+    </Switch>
+  )
+);
 
 export default SignupContainer;
