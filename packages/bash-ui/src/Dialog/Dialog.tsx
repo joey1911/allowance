@@ -4,19 +4,23 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Root as DialogRoot,
-  Trigger as DialogTrigger,
-  Portal as DialogPortal
+  Trigger as DialogTrigger
 } from '@radix-ui/react-dialog';
-import { Cross2Icon } from '@radix-ui/react-icons';
 import {
-  DialogOverlay,
   DialogTitle,
   DialogDescription,
   DialogContent,
-  DialogCloseButton
 } from './DialogBase';
 
 export default function Dialog({
+  /**
+   * Open state
+   */
+  open,
+  /**
+   * Open change handler
+   */
+  openChangeHandler,
   /**
    * Trigger element to open dialog
    */
@@ -34,23 +38,21 @@ export default function Dialog({
    */
   children
 }: {
+  open: boolean,
+  openChangeHandler: (open: boolean) => void, // eslint-disable-line
   trigger: React.ReactNode,
   title: string,
   description: string,
   children: React.ReactNode
 }) {
   return (
-    <DialogRoot>
+    <DialogRoot open={open} onOpenChange={openChangeHandler}>
       <DialogTrigger asChild>{trigger}</DialogTrigger>
-      <DialogPortal>
-        <DialogOverlay />
-        <DialogContent>
-          <DialogTitle>{title}</DialogTitle>
-          <DialogDescription>{description}</DialogDescription>
-          {children}
-          <DialogCloseButton><Cross2Icon /></DialogCloseButton>
-        </DialogContent>
-      </DialogPortal>
+      <DialogContent>
+        <DialogTitle>{title}</DialogTitle>
+        <DialogDescription>{description}</DialogDescription>
+        {children}
+      </DialogContent>
     </DialogRoot>
   )
 };

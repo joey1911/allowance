@@ -16,7 +16,11 @@ interface UpdatePasswordInput {
   password: string
 }
 
-export default function UpdatePasswordForm() {
+export default function UpdatePasswordForm({
+  callback
+}: {
+  callback?: Function // eslint-disable-line react/require-default-props
+}) {
   const {
     register,
     handleSubmit,
@@ -30,12 +34,13 @@ export default function UpdatePasswordForm() {
     const updatePasswordResults = await updatePassword(password);
 
     if (updatePasswordResults.status === 'OK') {
-      alert('Password updated');
+      if (callback) {
+        callback();
+      }
     } else {
       alert('There was an error updating your password');
+      setValue('password', '');
     }
-
-    setValue('password', '');
   };
 
   return (

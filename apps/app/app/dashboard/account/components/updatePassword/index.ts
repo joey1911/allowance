@@ -1,0 +1,1 @@
+export { default as UpdatePasswordContainer } from './UpdatePasswordContainer'; // eslint-disable-line import/prefer-default-export

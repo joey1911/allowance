@@ -1,1 +1,0 @@
-export { default as UpdatePasswordForm } from './UpdatePasswordForm'; // eslint-disable-line import/prefer-default-export

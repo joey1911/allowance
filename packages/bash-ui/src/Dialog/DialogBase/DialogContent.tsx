@@ -1,8 +1,16 @@
-import React from 'react';
+import React, {
+  type Ref
+} from 'react';
 import PropTypes from 'prop-types';
-import { Content } from '@radix-ui/react-dialog';
+import {
+  Portal,
+  Content
+} from '@radix-ui/react-dialog';
+import { Cross2Icon } from '@radix-ui/react-icons';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { css } from '@allowance/styled-system/css';
+import DialogOverlay from './DialogOverlay';
+import DialogCloseButton from './DialogCloseButton';
 
 const styles = css({
   background: 'white',
@@ -22,15 +30,27 @@ const styles = css({
   }
 });
 
-export default function DialogContent({
-  children
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <Content className={styles}>{children}</Content>
+const DialogContent = React.forwardRef(
+  ({
+    children,
+    ...rest
+  }: {
+    children: React.ReactNode
+  }, forwardedRef: Ref<HTMLDivElement>) => (
+    <Portal>
+      <DialogOverlay />
+      <Content className={styles} {...rest} ref={forwardedRef}>
+        {children}
+        <DialogCloseButton aria-label="Close">
+          <Cross2Icon />
+        </DialogCloseButton>
+      </Content>
+    </Portal>
   )
-};
+);
+DialogContent.displayName = 'DialogContent';
+
+export default DialogContent;
 
 DialogContent.propTypes = {
   /**
