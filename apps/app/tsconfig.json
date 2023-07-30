@@ -10,7 +10,9 @@
       "@/actions/*": ["actions/*"],
       "@/actions": ["actions"],
       "@/components/*": ["components/*"],
-      "@/components": ["components"]
+      "@/components": ["components"],
+      "@/providers/*": ["providers/*"],
+      "@/providers": ["providers"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

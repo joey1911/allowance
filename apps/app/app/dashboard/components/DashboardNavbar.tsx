@@ -1,8 +1,11 @@
+'use client'
+
 import Link from 'next/link';
 import {
   Navbar,
   MenuItem,
 } from '@allowance/bash-ui';
+import { useAuth } from '@/providers';
 
 const companyLinks = [
   {
@@ -29,6 +32,10 @@ const CompanyMenuItems = (
 );
 
 export default function DashboardNavbar() {
+  const { user } = useAuth();
+
+  console.log(user);
+
   return (
     <Navbar menuItems={CompanyMenuItems} menuPlacement="left" menuAlignment="vertical" />
   )

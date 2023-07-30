@@ -1,9 +1,6 @@
 import React from 'react';
 import { redirect } from 'next/navigation';
-import {
-  Container,
-  Box
-} from '@allowance/bash-ui';
+import { Box } from '@allowance/bash-ui';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { flex } from '@allowance/styled-system/patterns';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -11,6 +8,7 @@ import { css } from '@allowance/styled-system/css';
 import type { Session } from '@supabase/auth-helpers-nextjs';
 import SignOutButton from '@/components/SignOutButton';
 import getSession from '@/actions/getSession';
+import { AuthProvider } from '@/providers';
 import { DashboardNavbar } from './components';
 
 export default async function DashboardLayout({
@@ -26,16 +24,14 @@ export default async function DashboardLayout({
   }
 
   return (
-    <>
+    <AuthProvider session={session}>
       <header>
-        <Container>
-          <div className={flex({ direction: 'row', align: 'center' })}>
-            <Box>Allowance</Box>
-            <div className={css({ marginLeft: 'auto' })}>
-              <SignOutButton />
-            </div>
+        <div className={flex({ direction: 'row', align: 'center' })}>
+          <Box>Allowance</Box>
+          <div className={css({ marginLeft: 'auto' })}>
+            <SignOutButton />
           </div>
-        </Container>
+        </div>
       </header>
       <div className={flex({ direction: 'row', gap: '3' })}>
         <div>
@@ -45,6 +41,6 @@ export default async function DashboardLayout({
           {children}
         </div>
       </div>
-    </>
+    </AuthProvider>
   )
 };
