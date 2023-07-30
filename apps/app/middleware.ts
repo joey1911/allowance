@@ -8,7 +8,7 @@ export async function middleware(req: NextRequest) {
   const res = NextResponse.next();
   const supabase = createMiddlewareClient<Database>({ req, res });
 
-  // This needs to run in order to refresh the user's session before loading Server Component routes
+  // Refresh the user's session
   await supabase.auth.getSession();
 
   // Check to see if a user is logged in
