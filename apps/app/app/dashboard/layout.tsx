@@ -20,10 +20,6 @@ export default async function DashboardLayout({
 }) {
   const session: Session | null = await getSession();
 
-  if (session === null || !session?.user) {
-    redirect('/');
-  }
-
   if (session.user.user_metadata.onboardStep < 5) {
     // Redirect to the Customer Onboarding
     redirect('/onboard');

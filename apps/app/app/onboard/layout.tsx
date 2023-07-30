@@ -1,5 +1,4 @@
 import React from 'react';
-import { redirect } from 'next/navigation';
 import {
   Section,
   Container,
@@ -9,21 +8,13 @@ import {
 import { flex } from '@allowance/styled-system/patterns';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { css } from '@allowance/styled-system/css';
-import type { Session } from '@supabase/auth-helpers-nextjs';
 import SignOutButton from '@/components/SignOutButton';
-import getSession from '@/actions/getSession';
 
 export default async function OnboardLayout({
   children
 }: {
   children: React.ReactNode
 }) {
-  const session: Session | null = await getSession();
-
-  if (session === null || !session?.user) {
-    redirect('/');
-  }
-
   return (
     <>
       <header>
