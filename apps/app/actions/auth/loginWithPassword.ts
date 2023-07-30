@@ -30,12 +30,5 @@ export default async function loginWithPassword(email: string, password: string)
       status: 'Error',
       message: errorMessage
     };
-  } finally {
-    // Log login attempt
   }
 };
-/*
-type LoginResponse = Awaited<ReturnType<typeof loginWithPassword>>
-export type LoginResponseSuccess = LoginResponse['data']
-export type LoginResponseError = LoginResponse['error']
-*/
