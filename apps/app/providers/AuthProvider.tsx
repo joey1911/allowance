@@ -8,7 +8,7 @@ import {
   useMemo
 } from 'react';
 
-const AuthContext = createContext({});
+const AuthContext = createContext(undefined);
 
 export const useAuth = () => useContext(AuthContext);
 
