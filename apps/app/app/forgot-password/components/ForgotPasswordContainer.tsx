@@ -1,24 +1,25 @@
 'use client'
 
-import React from 'react';
-import {
-  observer,
-  Switch
-} from '@legendapp/state/react';
+import { useSelector } from '@legendapp/state/react';
 import ForgotPasswordForm from './ForgotPasswordForm';
 import ForgotPasswordConfirmation from './ForgotPasswordConfirmation';
-import forgotPasswordState from '../forgotPasswordState';
+import useForgotPasswordForm from '../useForgotPasswordForm';
 
-const ForgotPasswordContainer = observer(() =>
-  (
-    <Switch value={forgotPasswordState.step}>
-      {{
-        1: () => <ForgotPasswordForm />,
-        2: () => <ForgotPasswordConfirmation />,
-        default: () => <div>Error!</div>
-      }}
-    </Switch>
+export default function ForgotPasswordContainer() {
+  const {
+    forgotPasswordState,
+    forgotPasswordFormHandler
+  } = useForgotPasswordForm();
+  const response = useSelector(forgotPasswordState);
+
+  /* eslint-disable react/jsx-no-useless-fragment */
+  return (
+    <>
+      {response.status === 'OK' ? (
+        <ForgotPasswordConfirmation email={response?.email} />
+      ) : (
+        <ForgotPasswordForm handler={forgotPasswordFormHandler} />
+      )}
+    </>
   )
-);
-
-export default ForgotPasswordContainer;
+};

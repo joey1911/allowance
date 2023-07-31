@@ -6,20 +6,27 @@ import {
   ForgotPasswordFormSchema,
   type ForgotPasswordFormSchemaType
 } from '../forgotPasswordSchema';
-import forgotPasswordFormHandler from '../forgotPasswordFormHandler';
 
-export default function ForgotPasswordForm() {
+export default function ForgotPasswordForm({
+  handler
+}: {
+  handler: any
+}) {
   return (
-    <ReactForm<ForgotPasswordFormSchemaType, typeof ForgotPasswordFormSchema>
-      onSubmit={forgotPasswordFormHandler}
-      schema={ForgotPasswordFormSchema}
-    >
-      <ReactForm.Input<ForgotPasswordFormSchemaType>
-        displayName="Email"
-        name="email"
-        type="email"
-      />
-      <ReactForm.SubmitButton type="submit" size="lg" variant="primary">Reset Password</ReactForm.SubmitButton>
-    </ReactForm>
+    <>
+      <h1>Password Reset</h1>
+      <p>Enter the email address associated with your account, and we&apos;ll send you a secure link to reset your password.</p>
+      <ReactForm<ForgotPasswordFormSchemaType, typeof ForgotPasswordFormSchema>
+        onSubmit={handler}
+        schema={ForgotPasswordFormSchema}
+      >
+        <ReactForm.Input<ForgotPasswordFormSchemaType>
+          displayName="Email"
+          name="email"
+          type="email"
+        />
+        <ReactForm.SubmitButton type="submit" size="lg" variant="primary">Reset Password</ReactForm.SubmitButton>
+      </ReactForm>
+    </>
   )
 };
