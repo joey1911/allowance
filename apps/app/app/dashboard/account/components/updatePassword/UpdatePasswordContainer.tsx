@@ -1,22 +1,20 @@
 'use client'
 
 import { useState } from 'react';
-import { observe } from '@legendapp/state';
 import { Dialog } from '@allowance/bash-ui';
 import UpdatePasswordForm from './UpdatePasswordForm';
-import updatePasswordState, {
-  resetUpdatePasswordState
-} from '../../updatePasswordState';
+import useUpdatePasswordForm from '../../useUpdatePasswordForm';
 
 export default function UpdatePasswordContainer() {
   const [open, setOpen] = useState(false);
-
-  observe(updatePasswordState.step, (e) => {
-    if (e.value === 2) {
+  const submitCallback = (response) => {
+    if (response.status === 'OK') {
       setOpen(false);
-      resetUpdatePasswordState();
+    } else {
+      alert(response.message);
     }
-  });
+  };
+  const { updatePasswordFormHandler } = useUpdatePasswordForm(submitCallback);
 
   return (
     <Dialog
@@ -26,7 +24,7 @@ export default function UpdatePasswordContainer() {
       title="Change Account Password"
       description="We recommend using at least 8 characters."
     >
-      <UpdatePasswordForm />
+      <UpdatePasswordForm handler={updatePasswordFormHandler} />
     </Dialog>
   )
 };

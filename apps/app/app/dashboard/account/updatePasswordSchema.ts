@@ -1,8 +1,8 @@
 import { z } from 'zod';
 
 export const UpdatePasswordFormSchema = z.object({
-  password: z.string().min(1, {
-    message: 'Password is required.'
+  password: z.string().min(6, {
+    message: 'Password is required and needs to be at least 6 characters long.'
   })
 });
 

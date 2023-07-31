@@ -1,20 +1,21 @@
 'use client'
 
 import { ReactForm } from '@allowance/bash-ui';
-import UpdatePasswordErrorHandler from './UpdatePasswordErrorHandler';
 import {
   UpdatePasswordFormSchema,
   type UpdatePasswordFormSchemaType
 } from '../../updatePasswordSchema';
-import updatePasswordFormHandler from '../../updatePasswordFormHandler';
 
-export default function UpdatePasswordForm() {
+export default function UpdatePasswordForm({
+  handler
+}: {
+  handler: any
+}) {
   return (
     <ReactForm<UpdatePasswordFormSchemaType, typeof UpdatePasswordFormSchema>
-      onSubmit={updatePasswordFormHandler}
+      onSubmit={handler}
       schema={UpdatePasswordFormSchema}
     >
-      <UpdatePasswordErrorHandler />
       <ReactForm.Input<UpdatePasswordFormSchemaType>
         displayName="Password"
         name="password"
