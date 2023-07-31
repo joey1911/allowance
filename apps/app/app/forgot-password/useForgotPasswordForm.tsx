@@ -1,6 +1,6 @@
 import { SubmitHandler } from 'react-hook-form';
 import { useObservable } from '@legendapp/state/react';
-import { forgotPassword } from '@/actions/auth';
+import { sendPasswordResetLink } from '@/actions/auth';
 import type { ForgotPasswordFormSchemaType } from './forgotPasswordSchema';
 
 const useForgotPasswordForm = () => {
@@ -17,7 +17,7 @@ const useForgotPasswordForm = () => {
   };
 
   const forgotPasswordFormHandler: SubmitHandler<ForgotPasswordFormSchemaType> = async ({ email }) => {
-    const response = await forgotPassword(email);
+    const response = await sendPasswordResetLink(email);
 
     forgotPasswordState.email.set(email);
     forgotPasswordState.status.set(response.status);

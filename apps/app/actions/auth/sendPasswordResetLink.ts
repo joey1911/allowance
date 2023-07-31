@@ -5,7 +5,7 @@ import {
 } from '@allowance/utilities';
 import type { Database } from '@/types/supabase';
 
-export default async function forgotPassword(email: string) {
+export default async function sendPasswordResetLink(email: string) {
   const supabase = createClientComponentClient<Database>();
 
   try {
@@ -25,13 +25,5 @@ export default async function forgotPassword(email: string) {
       status: 'Error',
       message: errorMessage
     };
-  } finally {
-    // Log password reset attempt
-    // Email user that someone attempted to update their password
   }
 }
-/*
-type ForgotPasswordResponse = Awaited<ReturnType<typeof forgotPassword>>
-export type ForgotPasswordResponseSuccess = ForgotPasswordResponse['data']
-export type ForgotPasswordResponseError = ForgotPasswordResponse['error']
-*/
