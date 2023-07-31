@@ -18,8 +18,5 @@ export default async function updatePassword(password: string) {
       status: 'Error',
       message: error.message
     }
-  } finally {
-    // Log password update
-    // Send an email to let them know the password was updated (or attempted)
   }
 };

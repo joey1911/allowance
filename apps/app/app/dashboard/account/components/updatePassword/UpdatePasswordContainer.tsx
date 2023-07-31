@@ -8,6 +8,7 @@ import useUpdatePasswordForm from '../../useUpdatePasswordForm';
 export default function UpdatePasswordContainer() {
   const [open, setOpen] = useState(false);
   const submitCallback = (response) => {
+    // TODO: Add logging and send email to user that password / attempt was done
     if (response.status === 'OK') {
       setOpen(false);
     } else {
