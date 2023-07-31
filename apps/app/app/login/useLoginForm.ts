@@ -37,6 +37,6 @@ const useLoginForm = (callback) => {
     resetLoginState,
     loginFormHandler
   };
-}
+};
 
 export default useLoginForm;
