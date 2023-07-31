@@ -1,5 +1,5 @@
 import { SubmitHandler } from 'react-hook-form';
-import { updatePassword } from '@/actions/user';
+import { updatePassword } from '@/actions/auth';
 import type { UpdatePasswordFormSchemaType } from './updatePasswordSchema';
 
 const useUpdatePasswordForm = (callback) => {

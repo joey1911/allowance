@@ -9,5 +9,3 @@ export type {
 } from './getProfile';
 
 export { default as updateProfile } from './updateProfile';
-
-export { default as updatePassword } from './updatePassword';
