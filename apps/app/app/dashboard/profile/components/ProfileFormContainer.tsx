@@ -1,7 +1,7 @@
 import type { Session } from '@supabase/auth-helpers-nextjs';
-import { getSession } from '@/data';
 import {
   getProfile,
+  getSession,
   type GetProfileResponseSuccess,
   type GetProfileResponseError
 } from '@/data';
