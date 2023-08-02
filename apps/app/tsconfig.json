@@ -5,14 +5,18 @@
     "target": "es6",
     "baseUrl": ".",
     "paths": {
-      "@/types/*": ["app/_types/*"],
-      "@/types": ["app/_types"],
       "@/actions/*": ["app/_actions/*"],
       "@/actions": ["app/_actions"],
       "@/components/*": ["app/_components/*"],
       "@/components": ["app/_components"],
+      "@/data/*": ["app/_data/*"],
+      "@/data": ["app/_data"],
+      "@/hooks/*": ["app/_hooks/*"],
+      "@/hooks": ["app/_hooks"],
       "@/providers/*": ["app/_providers/*"],
-      "@/providers": ["app/_providers"]
+      "@/providers": ["app/_providers"],
+      "@/types/*": ["app/_types/*"],
+      "@/types": ["app/_types"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

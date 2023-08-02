@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { Session } from '@supabase/auth-helpers-nextjs';
 import { createLinkToken } from '@/actions/plaid';
-import getSession from '@/actions/getSession';
+import { getSession } from '@/data';
 
 // eslint-disable-next-line import/prefer-default-export
 export async function GET() {

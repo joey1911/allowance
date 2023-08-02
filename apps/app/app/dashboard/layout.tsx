@@ -7,7 +7,7 @@ import { flex } from '@allowance/styled-system/patterns';
 import { css } from '@allowance/styled-system/css';
 import type { Session } from '@supabase/auth-helpers-nextjs';
 import SignOutButton from '@/components/SignOutButton';
-import getSession from '@/actions/getSession';
+import { getSession } from '@/data';
 import { AuthProvider } from '@/providers';
 import { DashboardNavbar } from './components';
 

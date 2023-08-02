@@ -1,10 +1,10 @@
 import type { Session } from '@supabase/auth-helpers-nextjs';
-import getSession from '@/actions/getSession';
+import { getSession } from '@/data';
 import {
   getProfile,
   type GetProfileResponseSuccess,
   type GetProfileResponseError
-} from '@/actions/user';
+} from '@/data';
 import ProfileForm from './ProfileForm';
 
 const ProfileFormContainer = async () => {
